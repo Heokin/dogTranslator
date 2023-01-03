@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>71929533861-cqgl4qk4f46qi2n801garnv95q62uuqa.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.71929533861-cqgl4qk4f46qi2n801garnv95q62uuqa</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCmSggg0T0S_W0tN9wmU1lHXlNTO7dR-Kk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>71929533861</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mindateq.dogtranslator</string>
+	<key>PROJECT_ID</key>
+	<string>dog-translator-228d6</string>
+	<key>STORAGE_BUCKET</key>
+	<string>dog-translator-228d6.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:71929533861:ios:e8ff9502f5f3e3e594c44c</string>
+</dict>
+</plist>
