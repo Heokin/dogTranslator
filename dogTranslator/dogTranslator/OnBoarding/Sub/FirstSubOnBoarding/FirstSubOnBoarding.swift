@@ -6,14 +6,6 @@
 //
 
 import Foundation
-//
-//  FirstSubOnBoarding.swift
-//  BuilderHelper
-//
-//  Created by Kirill Sedliarov on 10.11.22.
-//
-
-import Foundation
 import UIKit
 import SwiftyStoreKit
 
@@ -28,7 +20,7 @@ class FirstSubOnBoarding: UICollectionViewCell {
     var third = "com.dogtranslator.1yetr"
     
     var wPrice = "$1.99"
-    var mPrice = "$4.49"
+    var mPrice = "$4.99"
     var yPrice = "$9.99"
 
     var standartHeight = UIScreen.main.bounds.height / 6.1984
@@ -39,9 +31,9 @@ class FirstSubOnBoarding: UICollectionViewCell {
     lazy var bgImage = ImageView(style: .subMainBGImage)
     lazy var imageHeader = ImageView(style: .subImageHeader)
     
-    lazy var unslockAllAccess = Label(style: .subGreen, "Unlock All Access")
-    lazy var firstSubLabel = Label(style: .subReason, "No Limits")
-    lazy var secondSubLabel = Label(style: .subReason, "No Ads")
+    lazy var unslockAllAccess = Label(style: .subGreen, NSLocalizedString("subscribeHeader", comment: ""))
+    lazy var firstSubLabel = Label(style: .subReason, NSLocalizedString("subscribeTitleLim", comment: ""))
+    lazy var secondSubLabel = Label(style: .subReason, NSLocalizedString("subscribeTitleAds", comment: ""))
     
     lazy var firstSubView = ViewSub(type: .subscribeSubView)
     var firstTopLabel: LabelSub?
@@ -85,7 +77,7 @@ class FirstSubOnBoarding: UICollectionViewCell {
 
     
     lazy var restoreView = ViewSub(type: .dismissView)
-    lazy var restoreLabel = LabelSub(type: .restore, local.restoreButton, "")
+    lazy var restoreLabel = LabelSub(type: .restore, NSLocalizedString("restoreButton", comment: ""), "")
     lazy var dismissView = ViewSub(type: .dismissView)
     lazy var xmark = ImageViewSub(image: .xmark)
     
@@ -100,8 +92,11 @@ class FirstSubOnBoarding: UICollectionViewCell {
 
         NotificationCenter.default.addObserver(self, selector: #selector(methodOfReceivedNotification(notification:)), name: Notification.Name("SubscribeOk"), object: nil)
         
-        let js = UserDefaults.standard.value(forKey: "wSub") as? String
+        NotificationCenter.default.addObserver(self, selector: #selector(restoreAlert(notification:)), name: Notification.Name("RestoreError"), object: nil)
         
+        let js = UserDefaults.standard.value(forKey: "wSub") as? String
+        print("second")
+
         if js != nil {
             do{
                 if let json = js!.data(using: String.Encoding.utf8){
@@ -208,18 +203,18 @@ class FirstSubOnBoarding: UICollectionViewCell {
         } else if self.first == "com.dogtranslator.1we"{
             self.firstTopLabel = LabelSub(type: .priceTop, wPrice, local.subscribeWeekly)
             self.firstSelectedTopLabel = LabelSub(type: .priceTopActive, wPrice, local.subscribeWeekly)
-            self.firstBottomLabel = LabelSub(type: .dayBot, local.subscribeWeekly.uppercased(), local.subscribeWeekly)
-            self.firstSelectedBottomLabel = LabelSub(type: .dayBotActive, local.subscribeWeekly.uppercased(), local.subscribeWeekly)
+            self.firstBottomLabel = LabelSub(type: .dayBot, local.subscribeWeekly, local.subscribeWeekly)
+            self.firstSelectedBottomLabel = LabelSub(type: .dayBotActive, local.subscribeWeekly, local.subscribeWeekly)
         } else if self.first == "com.dogtranslator.1ye"{
             self.firstTopLabel = LabelSub(type: .priceTop, yPrice, local.subscribeYearly)
             self.firstSelectedTopLabel = LabelSub(type: .priceTopActive, yPrice, local.subscribeYearly)
-            self.firstBottomLabel = LabelSub(type: .dayBot, local.subscribeYearly.uppercased(), local.subscribeYearly)
-            self.firstSelectedBottomLabel = LabelSub(type: .dayBotActive, local.subscribeYearly.uppercased(), local.subscribeYearly)
+            self.firstBottomLabel = LabelSub(type: .dayBot, local.subscribeYearly, local.subscribeYearly)
+            self.firstSelectedBottomLabel = LabelSub(type: .dayBotActive, local.subscribeYearly, local.subscribeYearly)
         } else if self.first == "com.dogtranslator.1mo" {
             self.firstTopLabel = LabelSub(type: .priceTop, mPrice,  local.subscribeMonthly)
             self.firstSelectedTopLabel = LabelSub(type: .priceTopActive, mPrice,  local.subscribeMonthly)
-            self.firstBottomLabel = LabelSub(type: .dayBot, local.subscribeMonthly.uppercased(),  local.subscribeMonthly)
-            self.firstSelectedBottomLabel = LabelSub(type: .dayBotActive, local.subscribeMonthly.uppercased(),  local.subscribeMonthly)
+            self.firstBottomLabel = LabelSub(type: .dayBot, local.subscribeMonthly,  local.subscribeMonthly)
+            self.firstSelectedBottomLabel = LabelSub(type: .dayBotActive, local.subscribeMonthly,  local.subscribeMonthly)
         }
         
         if self.second == "com.dogtranslator.1wetr"{
@@ -240,18 +235,18 @@ class FirstSubOnBoarding: UICollectionViewCell {
         } else if self.second == "com.dogtranslator.1we"{
             self.secondTopLabel = LabelSub(type: .priceTop, wPrice, local.subscribeWeekly)
             self.secondSelectedTopLabel = LabelSub(type: .priceTopActive, wPrice, local.subscribeWeekly)
-            self.secondBottomLabel = LabelSub(type: .dayBot, local.subscribeWeekly.uppercased(), local.subscribeWeekly)
-            self.secondSelectedBottomLabel = LabelSub(type: .dayBotActive, local.subscribeWeekly.uppercased(), local.subscribeWeekly)
+            self.secondBottomLabel = LabelSub(type: .dayBot, local.subscribeWeekly, local.subscribeWeekly)
+            self.secondSelectedBottomLabel = LabelSub(type: .dayBotActive, local.subscribeWeekly, local.subscribeWeekly)
         } else if self.second == "com.dogtranslator.1ye"{
             self.secondTopLabel = LabelSub(type: .priceTop, yPrice, local.subscribeYearly)
             self.secondSelectedTopLabel = LabelSub(type: .priceTopActive, yPrice, local.subscribeYearly)
-            self.secondBottomLabel = LabelSub(type: .dayBot, local.subscribeYearly.uppercased(), local.subscribeYearly)
-            self.secondSelectedBottomLabel = LabelSub(type: .dayBotActive, local.subscribeYearly.uppercased(), local.subscribeYearly)
+            self.secondBottomLabel = LabelSub(type: .dayBot, local.subscribeYearly, local.subscribeYearly)
+            self.secondSelectedBottomLabel = LabelSub(type: .dayBotActive, local.subscribeYearly, local.subscribeYearly)
         } else if self.second == "com.dogtranslator.1mo" {
             self.secondTopLabel = LabelSub(type: .priceTop, mPrice,  local.subscribeMonthly)
             self.secondSelectedTopLabel = LabelSub(type: .priceTopActive, mPrice,  local.subscribeMonthly)
-            self.secondBottomLabel = LabelSub(type: .dayBot, local.subscribeMonthly.uppercased(),  local.subscribeMonthly)
-            self.secondSelectedBottomLabel = LabelSub(type: .dayBotActive, local.subscribeMonthly.uppercased(),  local.subscribeMonthly)
+            self.secondBottomLabel = LabelSub(type: .dayBot, local.subscribeMonthly,  local.subscribeMonthly)
+            self.secondSelectedBottomLabel = LabelSub(type: .dayBotActive, local.subscribeMonthly,  local.subscribeMonthly)
         }
         
         if self.third == "com.dogtranslator.1wetr"{
@@ -272,29 +267,35 @@ class FirstSubOnBoarding: UICollectionViewCell {
         } else if self.third == "com.dogtranslator.1we"{
             self.thirdTopLabel = LabelSub(type: .priceTop, wPrice, local.subscribeWeekly)
             self.thirdSelectedTopLabel = LabelSub(type: .priceTopActive, wPrice, local.subscribeWeekly)
-            self.thirdBottomLabel = LabelSub(type: .dayBot, local.subscribeWeekly.uppercased(), local.subscribeWeekly)
-            self.thirdSelectedBottomLabel = LabelSub(type: .dayBotActive, local.subscribeWeekly.uppercased(), local.subscribeWeekly)
+            self.thirdBottomLabel = LabelSub(type: .dayBot, local.subscribeWeekly, local.subscribeWeekly)
+            self.thirdSelectedBottomLabel = LabelSub(type: .dayBotActive, local.subscribeWeekly, local.subscribeWeekly)
         } else if self.third == "com.dogtranslator.1ye"{
             self.thirdTopLabel = LabelSub(type: .priceTop, yPrice, local.subscribeYearly)
             self.thirdSelectedTopLabel = LabelSub(type: .priceTopActive, yPrice, local.subscribeYearly)
-            self.thirdBottomLabel = LabelSub(type: .dayBot, local.subscribeYearly.uppercased(), local.subscribeYearly)
-            self.thirdSelectedBottomLabel = LabelSub(type: .dayBotActive, local.subscribeYearly.uppercased(), local.subscribeYearly)
+            self.thirdBottomLabel = LabelSub(type: .dayBot, local.subscribeYearly, local.subscribeYearly)
+            self.thirdSelectedBottomLabel = LabelSub(type: .dayBotActive, local.subscribeYearly, local.subscribeYearly)
         } else if self.third == "com.dogtranslator.1mo" {
             self.thirdTopLabel = LabelSub(type: .priceTop, mPrice,  local.subscribeMonthly)
             self.thirdSelectedTopLabel = LabelSub(type: .priceTopActive, mPrice,  local.subscribeMonthly)
-            self.thirdBottomLabel = LabelSub(type: .dayBot, local.subscribeMonthly.uppercased(),  local.subscribeMonthly)
-            self.thirdSelectedBottomLabel = LabelSub(type: .dayBotActive, local.subscribeMonthly.uppercased(),  local.subscribeMonthly)
+            self.thirdBottomLabel = LabelSub(type: .dayBot, local.subscribeMonthly,  local.subscribeMonthly)
+            self.thirdSelectedBottomLabel = LabelSub(type: .dayBotActive, local.subscribeMonthly,  local.subscribeMonthly)
         }
         
         self.setup()
         self.setupLogic()
         
     }
-    
-    
-    
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func restoreAlert(notification: Notification) {
+        let alertController = UIAlertController(title: local.alertRestore,
+                                                message: local.alertRestoreDiscription,
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("alerOK", comment: ""), style: .destructive))
+        alertController.overrideUserInterfaceStyle = UIUserInterfaceStyle.light
+        self.window?.rootViewController?.present(alertController, animated: true)
     }
 }

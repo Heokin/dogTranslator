@@ -24,30 +24,6 @@ extension SecondSubscribeViewController {
             make.left.right.bottom.top.equalToSuperview()
         }
         
-        imageHeader.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(136)
-            make.centerX.equalToSuperview()
-        }
-        
-        view.addSubview(unslockAllAccess)
-        view.addSubview(firstSubLabel)
-        view.addSubview(secondSubLabel)
-        
-        unslockAllAccess.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(imageHeader.snp.bottom).offset(5)
-        }
-        
-        firstSubLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(unslockAllAccess.snp.bottom).offset(24)
-        }
-        
-        secondSubLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(firstSubLabel.snp.bottom).offset(24)
-        }
-        
         
         view.addSubview(restoreView)
         view.addSubview(restoreLabel)
@@ -394,6 +370,31 @@ extension SecondSubscribeViewController {
             NSLayoutConstraint.activate(constraintSmall)
         } else {
             NSLayoutConstraint.activate(constraintDefault)
+        }
+        
+        view.addSubview(unslockAllAccess)
+        view.addSubview(firstSubLabel)
+        view.addSubview(secondSubLabel)
+
+        
+        secondSubLabel.snp.makeConstraints { make in
+            make.bottom.equalTo(secondSubView.snp.top).offset(-40)
+            make.centerX.equalToSuperview()
+        }
+        
+        firstSubLabel.snp.makeConstraints { make in
+            make.bottom.equalTo(secondSubLabel.snp.top).offset(-16)
+            make.centerX.equalToSuperview()
+        }
+        
+        unslockAllAccess.snp.makeConstraints { make in
+            make.bottom.equalTo(firstSubLabel.snp.top).offset(-24)
+            make.centerX.equalToSuperview()
+        }
+        
+        imageHeader.snp.makeConstraints { make in
+            make.bottom.equalTo(unslockAllAccess.snp.top)
+            make.centerX.equalToSuperview()
         }
     }
 

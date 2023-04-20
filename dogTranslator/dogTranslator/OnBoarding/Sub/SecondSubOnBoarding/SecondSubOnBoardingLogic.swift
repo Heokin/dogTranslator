@@ -19,12 +19,12 @@ extension SecondSubOnBoarding {
             header = NSAttributedString(
                 string: text + "\n",
                 attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "black3"),
-                             NSAttributedString.Key.font: UIFont.rounded(ofSize: 22, weight: .medium)]
+                             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .semibold)]
             )
             wayText = NSAttributedString(
                 string: period,
                 attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "black3"),
-                             NSAttributedString.Key.font: UIFont.rounded(ofSize: 17, weight: .medium)]
+                             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .medium)]
             )
         
         attString.append(header)
@@ -42,13 +42,13 @@ extension SecondSubOnBoarding {
 
             header = NSAttributedString(
                 string: text + "\n",
-                attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "black3"),
-                             NSAttributedString.Key.font: UIFont.rounded(ofSize: 18, weight: .medium)]
+                attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "black3")!,
+                             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .semibold)]
             )
             wayText = NSAttributedString(
                 string: period,
-                attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "black3"),
-                             NSAttributedString.Key.font: UIFont.rounded(ofSize: 13, weight: .medium)]
+                attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "black3")!,
+                             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13, weight: .medium)]
             )
         
         
@@ -59,7 +59,6 @@ extension SecondSubOnBoarding {
         
         return attString
     }
-    
     func setupLogic() {
         
         dismissView.isHidden = true

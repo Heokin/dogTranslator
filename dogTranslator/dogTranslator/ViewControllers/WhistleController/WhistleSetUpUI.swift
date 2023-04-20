@@ -15,7 +15,7 @@ extension WhistleController {
         
         hzLabel.textColor = UIColor(named: "black3")
         view.backgroundColor = .white
-        roundedSettingView.backgroundColor = UIColor(named: "green")
+        roundedSettingView.backgroundColor = UIColor(named: "green78")
         roundedSubscribeView.backgroundColor = UIColor(named: "grey9f")
 
         view.addSubview(background)

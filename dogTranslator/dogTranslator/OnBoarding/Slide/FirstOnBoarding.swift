@@ -17,8 +17,8 @@ class FirtstOnBoarding: UICollectionViewCell {
     let local = LocalizationVariables()
     
     lazy var background = ImageView(style: .firstSlideBG)
-    lazy var labelFirst = Label(style: .semibold38, "Dog Translator")
-    lazy var labelSecond = Label(style: .semibold38, "Speak & Play")
+    lazy var labelFirst = Label(style: .semibold38, NSLocalizedString("firstOnBoardingHeaderUp", comment: ""))
+    lazy var labelSecond = Label(style: .semibold38, NSLocalizedString("firstOnBoardingHeaderDown", comment: ""))
     lazy var reasoneBackground = ImageView(style: .firstSlideImage)
     
     override init(frame: CGRect) {
@@ -56,11 +56,22 @@ extension FirtstOnBoarding {
         
         labelFirst.snp.makeConstraints { make in
             make.top.equalTo(reasoneBackground.snp.bottom).offset(72)
-            make.centerX.equalToSuperview()
+            make.left.right.equalToSuperview().inset(10)
         }
         labelSecond.snp.makeConstraints { make in
             make.top.equalTo(labelFirst.snp.bottom).offset(10)
-            make.centerX.equalToSuperview()
+            make.left.right.equalToSuperview().inset(10)
+        }
+        
+        if UIScreen.main.bounds.height < 750 {
+            labelFirst.snp.remakeConstraints { make in
+                make.top.equalTo(reasoneBackground.snp.bottom).offset(42)
+                make.left.right.equalToSuperview().inset(10)
+            }
+            labelSecond.snp.remakeConstraints { make in
+                make.top.equalTo(labelFirst.snp.bottom).offset(10)
+                make.left.right.equalToSuperview().inset(10)
+            }
         }
     }
 }

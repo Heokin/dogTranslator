@@ -21,7 +21,7 @@ class FirstSubscribeViewController: UIViewController{
     var third = "com.dogtranslator.1ye"
     
     var wPrice = "$1.99"
-    var mPrice = "$4.49"
+    var mPrice = "$4.99"
     var yPrice = "$9.99"
     
     var spiner = UIActivityIndicatorView(style: .large)
@@ -34,9 +34,9 @@ class FirstSubscribeViewController: UIViewController{
     lazy var bgImage = ImageView(style: .subMainBGImage)
     lazy var imageHeader = ImageView(style: .subImageHeader)
     
-    lazy var unslockAllAccess = Label(style: .subGreen, "Unlock All Access")
-    lazy var firstSubLabel = Label(style: .subReason, "No Limits")
-    lazy var secondSubLabel = Label(style: .subReason, "No Ads")
+    lazy var unslockAllAccess = Label(style: .subGreen, NSLocalizedString("subscribeHeader", comment: ""))
+    lazy var firstSubLabel = Label(style: .subReason, NSLocalizedString("subscribeTitleLim", comment: ""))
+    lazy var secondSubLabel = Label(style: .subReason, NSLocalizedString("subscribeTitleAds", comment: ""))
     
     lazy var firstSubView = ViewSub(type: .subscribeSubView)
     var firstTopLabel: LabelSub?
@@ -77,7 +77,7 @@ class FirstSubscribeViewController: UIViewController{
     lazy var continueButton = Button(style: .subscribeContinue, local.subscribeSaveButton)
     
     lazy var restoreView = ViewSub(type: .dismissView)
-    lazy var restoreLabel = LabelSub(type: .restore, local.restoreButton, "")
+    lazy var restoreLabel = LabelSub(type: .restore, NSLocalizedString("restoreButton", comment: ""), "")
     lazy var dismissView = ViewSub(type: .dismissView)
     lazy var xmark = ImageViewSub(image: .xmark)
     
@@ -87,7 +87,15 @@ class FirstSubscribeViewController: UIViewController{
     lazy var recognizeSecond = UITapGestureRecognizer(target: self, action: #selector(secondSub))
     lazy var recognizeThird = UITapGestureRecognizer(target: self, action: #selector(thirdSub))
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.post(name: Notification.Name("reloadSetting"), object: nil)
+
+    }
+    
     override func viewDidLoad() {
+        print("first")
 
         DispatchQueue.main.async {
             RemoteConfigFetch.shared.fetchValues()
@@ -206,18 +214,18 @@ class FirstSubscribeViewController: UIViewController{
         } else if self.first == "com.dogtranslator.1we"{
             self.firstBottomLabel = LabelSub(type: .priceBot, wPrice, local.subscribeWeekly)
             self.firstSelectedBottomLabel = LabelSub(type: .priceBotActive, wPrice, local.subscribeWeekly)
-            self.firstTopLabel = LabelSub(type: .dayTop, local.subscribeWeekly.uppercased(), local.subscribeWeekly)
-            self.firstSelectedTopLabel = LabelSub(type: .dayTopActive, local.subscribeWeekly.uppercased(), local.subscribeWeekly)
+            self.firstTopLabel = LabelSub(type: .dayTop, local.subscribeWeekly, local.subscribeWeekly)
+            self.firstSelectedTopLabel = LabelSub(type: .dayTopActive, local.subscribeWeekly, local.subscribeWeekly)
         } else if self.first == "com.dogtranslator.1ye"{
             self.firstBottomLabel = LabelSub(type: .priceBot, yPrice, local.subscribeYearly)
             self.firstSelectedBottomLabel = LabelSub(type: .priceBotActive, yPrice, local.subscribeYearly)
-            self.firstTopLabel = LabelSub(type: .dayTop, local.subscribeYearly.uppercased(), local.subscribeYearly)
-            self.firstSelectedTopLabel = LabelSub(type: .dayTopActive, local.subscribeYearly.uppercased(), local.subscribeYearly)
+            self.firstTopLabel = LabelSub(type: .dayTop, local.subscribeYearly, local.subscribeYearly)
+            self.firstSelectedTopLabel = LabelSub(type: .dayTopActive, local.subscribeYearly, local.subscribeYearly)
         } else if self.first == "com.dogtranslator.1mo"{
             self.firstBottomLabel = LabelSub(type: .priceBot, mPrice, local.subscribeMonthly)
             self.firstSelectedBottomLabel = LabelSub(type: .priceBotActive, mPrice, local.subscribeMonthly)
-            self.firstTopLabel = LabelSub(type: .dayTop, local.subscribeMonthly.uppercased(), local.subscribeMonthly)
-            self.firstSelectedTopLabel = LabelSub(type: .dayTopActive, local.subscribeMonthly.uppercased(), local.subscribeMonthly)
+            self.firstTopLabel = LabelSub(type: .dayTop, local.subscribeMonthly, local.subscribeMonthly)
+            self.firstSelectedTopLabel = LabelSub(type: .dayTopActive, local.subscribeMonthly, local.subscribeMonthly)
         }
         
         
@@ -239,18 +247,18 @@ class FirstSubscribeViewController: UIViewController{
         } else if self.second == "com.dogtranslator.1we"{
             self.secondBottomLabel = LabelSub(type: .priceBot, wPrice, local.subscribeWeekly)
             self.secondSelectedBottomLabel = LabelSub(type: .priceBotActive, wPrice, local.subscribeWeekly)
-            self.secondTopLabel = LabelSub(type: .dayTop, local.subscribeWeekly.uppercased(), local.subscribeWeekly)
-            self.secondSelectedTopLabel = LabelSub(type: .dayTopActive, local.subscribeWeekly.uppercased(), local.subscribeWeekly)
+            self.secondTopLabel = LabelSub(type: .dayTop, local.subscribeWeekly, local.subscribeWeekly)
+            self.secondSelectedTopLabel = LabelSub(type: .dayTopActive, local.subscribeWeekly, local.subscribeWeekly)
         } else if self.second == "com.dogtranslator.1ye"{
             self.secondBottomLabel = LabelSub(type: .priceBot, yPrice, local.subscribeYearly)
             self.secondSelectedBottomLabel = LabelSub(type: .priceBotActive, yPrice, local.subscribeYearly)
-            self.secondTopLabel = LabelSub(type: .dayTop, local.subscribeYearly.uppercased(), local.subscribeYearly)
-            self.secondSelectedTopLabel = LabelSub(type: .dayTopActive, local.subscribeYearly.uppercased(), local.subscribeYearly)
+            self.secondTopLabel = LabelSub(type: .dayTop, local.subscribeYearly, local.subscribeYearly)
+            self.secondSelectedTopLabel = LabelSub(type: .dayTopActive, local.subscribeYearly, local.subscribeYearly)
         } else if self.second == "com.dogtranslator.1mo"{
             self.secondBottomLabel = LabelSub(type: .priceBot, mPrice, local.subscribeMonthly)
             self.secondSelectedBottomLabel = LabelSub(type: .priceBotActive, mPrice, local.subscribeMonthly)
-            self.secondTopLabel = LabelSub(type: .dayTop, local.subscribeMonthly.uppercased(), local.subscribeMonthly)
-            self.secondSelectedTopLabel = LabelSub(type: .dayTopActive, local.subscribeMonthly.uppercased(), local.subscribeMonthly)
+            self.secondTopLabel = LabelSub(type: .dayTop, local.subscribeMonthly, local.subscribeMonthly)
+            self.secondSelectedTopLabel = LabelSub(type: .dayTopActive, local.subscribeMonthly, local.subscribeMonthly)
         }
         
         
@@ -272,18 +280,18 @@ class FirstSubscribeViewController: UIViewController{
         } else if self.third == "com.dogtranslator.1we"{
             self.thirdBottomLabel = LabelSub(type: .priceBot, wPrice, local.subscribeWeekly)
             self.thirdSelectedBottomLabel = LabelSub(type: .priceBotActive, wPrice, local.subscribeWeekly)
-            self.thirdTopLabel = LabelSub(type: .dayTop, local.subscribeWeekly.uppercased(), local.subscribeWeekly)
-            self.thirdSelectedTopLabel = LabelSub(type: .dayTopActive, local.subscribeWeekly.uppercased(), local.subscribeWeekly)
+            self.thirdTopLabel = LabelSub(type: .dayTop, local.subscribeWeekly, local.subscribeWeekly)
+            self.thirdSelectedTopLabel = LabelSub(type: .dayTopActive, local.subscribeWeekly, local.subscribeWeekly)
         } else if self.third == "com.dogtranslator.1ye"{
             self.thirdBottomLabel = LabelSub(type: .priceBot, yPrice, local.subscribeYearly)
             self.thirdSelectedBottomLabel = LabelSub(type: .priceBotActive, yPrice, local.subscribeYearly)
-            self.thirdTopLabel = LabelSub(type: .dayTop, local.subscribeYearly.uppercased(), local.subscribeYearly)
-            self.thirdSelectedTopLabel = LabelSub(type: .dayTopActive, local.subscribeYearly.uppercased(), local.subscribeYearly)
+            self.thirdTopLabel = LabelSub(type: .dayTop, local.subscribeYearly, local.subscribeYearly)
+            self.thirdSelectedTopLabel = LabelSub(type: .dayTopActive, local.subscribeYearly, local.subscribeYearly)
         } else if self.third == "com.dogtranslator.1mo"{
             self.thirdBottomLabel = LabelSub(type: .priceBot, mPrice, local.subscribeMonthly)
             self.thirdSelectedBottomLabel = LabelSub(type: .priceBotActive, mPrice, local.subscribeMonthly)
-            self.thirdTopLabel = LabelSub(type: .dayTop, local.subscribeMonthly.uppercased(), local.subscribeMonthly)
-            self.thirdSelectedTopLabel = LabelSub(type: .dayTopActive, local.subscribeMonthly.uppercased(), local.subscribeMonthly)
+            self.thirdTopLabel = LabelSub(type: .dayTop, local.subscribeMonthly, local.subscribeMonthly)
+            self.thirdSelectedTopLabel = LabelSub(type: .dayTopActive, local.subscribeMonthly, local.subscribeMonthly)
         }
         
         self.setup()
@@ -295,6 +303,6 @@ class FirstSubscribeViewController: UIViewController{
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        .lightContent
+        .darkContent
     }
 }

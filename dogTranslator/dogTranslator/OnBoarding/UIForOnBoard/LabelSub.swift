@@ -172,7 +172,7 @@ class LabelSub: UILabel {
             attString.append(wayText)
             attributedText = attString
             textAlignment = .center
-            textColor = UIColor(named: "purple")!
+            textColor = UIColor(named: "purple")
             numberOfLines = 0
         case .subscribeTopPriceActive:
             let attString = NSMutableAttributedString()
@@ -257,7 +257,7 @@ class LabelSub: UILabel {
                 wayText = NSAttributedString(
                     string: subHelper!,
                     attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "purple"),
-                                 NSAttributedString.Key.font: UIFont.rounded(ofSize: 26, weight: .light)]
+                                 NSAttributedString.Key.font: UIFont.rounded(ofSize: 26, weight: .medium)]
                 )
             } else {
                 header = NSAttributedString(
@@ -268,7 +268,7 @@ class LabelSub: UILabel {
                 wayText = NSAttributedString(
                     string: subHelper!,
                     attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "purple"),
-                                 NSAttributedString.Key.font: UIFont.rounded(ofSize: 17, weight: .light)]
+                                 NSAttributedString.Key.font: UIFont.rounded(ofSize: 17, weight: .medium)]
                 )
             }
             
@@ -285,6 +285,14 @@ class LabelSub: UILabel {
             } else {
                 font = UIFont.rounded(ofSize: 14, weight: .medium)
             }
+            
+            if Locale.current.languageCode == "es" {
+                if UIScreen.main.bounds.width > 500 {
+                    font = UIFont.rounded(ofSize: 21, weight: .semibold)
+                } else {
+                    font = UIFont.rounded(ofSize: 12, weight: .semibold)
+                }
+            }
             textAlignment = .center
             textColor = UIColor(named: "purple")
             numberOfLines = 0
@@ -292,8 +300,17 @@ class LabelSub: UILabel {
             if UIScreen.main.bounds.width > 500 {
                 font = UIFont.rounded(ofSize: 25, weight: .medium)
             } else {
-                font = UIFont.rounded(ofSize: 16, weight: .medium)
+                font = UIFont.rounded(ofSize: 18, weight: .medium)
             }
+            print(Locale.current.languageCode)
+            if Locale.current.languageCode == "es" {
+                if UIScreen.main.bounds.width > 500 {
+                    font = UIFont.rounded(ofSize: 23, weight: .semibold)
+                } else {
+                    font = UIFont.rounded(ofSize: 15, weight: .semibold)
+                }
+            }
+            
             textAlignment = .center
             textColor = UIColor(named: "purple")
             numberOfLines = 0
@@ -303,6 +320,8 @@ class LabelSub: UILabel {
             } else {
                 font = UIFont.rounded(ofSize: 16, weight: .semibold)
             }
+            
+        
             textAlignment = .center
             textColor = UIColor(named: "s")
             numberOfLines = 0
@@ -311,6 +330,13 @@ class LabelSub: UILabel {
                 font = UIFont.rounded(ofSize: 29, weight: .semibold)
             } else {
                 font = UIFont.rounded(ofSize: 20, weight: .semibold)
+            }
+            if Locale.current.languageCode == "fr" {
+                if UIScreen.main.bounds.width > 500 {
+                    font = UIFont.rounded(ofSize: 27, weight: .semibold)
+                } else {
+                    font = UIFont.rounded(ofSize: 17, weight: .semibold)
+                }
             }
             textAlignment = .center
             textColor = UIColor(named: "s")
@@ -367,7 +393,7 @@ class LabelSub: UILabel {
             if UIScreen.main.bounds.width > 500 {
                 font = UIFont.rounded(ofSize: 29, weight: .medium)
             } else {
-                font = UIFont.rounded(ofSize: 20, weight: .medium)
+                font = UIFont.rounded(ofSize: 16, weight: .medium)
             }
             textAlignment = .center
             textColor = UIColor(named: "purple")
@@ -377,6 +403,14 @@ class LabelSub: UILabel {
                 font = UIFont.rounded(ofSize: 25, weight: .semibold)
             } else {
                 font = UIFont.rounded(ofSize: 16, weight: .semibold)
+            }
+            
+            if Locale.current.languageCode == "fr" {
+                if UIScreen.main.bounds.width > 500 {
+                    font = UIFont.rounded(ofSize: 27, weight: .semibold)
+                } else {
+                    font = UIFont.rounded(ofSize: 13, weight: .semibold)
+                }
             }
             
             textAlignment = .center
@@ -397,7 +431,7 @@ class LabelSub: UILabel {
             } else {
                 font = UIFont.rounded(ofSize: 14, weight: .medium)
             }
-            
+               
             textAlignment = .center
             textColor = UIColor(named: "purple")
             numberOfLines = 0

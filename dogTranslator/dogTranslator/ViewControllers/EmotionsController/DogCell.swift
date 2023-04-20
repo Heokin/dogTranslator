@@ -17,6 +17,7 @@ class DogCell: UICollectionViewCell {
     public var approach = false
     public var blurImageView = UIImageView()
     static let id = "dogID"
+    
     var animationView: LottieAnimationView = {
         var animation = LottieAnimationView()
         animation = .init(name: "stars")
@@ -37,23 +38,30 @@ class DogCell: UICollectionViewCell {
     public func setup(image: String, text: String, approach: Bool) {
         self.text.text = text
         self.image.image = UIImage(named: image)
-        self.blurImageView.image = UIImage(named: "lock" + text)
+        self.blurImageView.image = UIImage(named: "lock" + image)
         
         if approach {
             self.text.isHidden = false
             self.image.isHidden = false
             self.blurImageView.isHidden = true
             self.animationView.isHidden = true
+            
         } else {
             self.text.isHidden = true
             self.image.isHidden = true
             self.blurImageView.isHidden = false
             self.animationView.isHidden = false
+            
+            contentView.backgroundColor = #colorLiteral(red: 0.986459434, green: 0.9964066148, blue: 0.9833038449, alpha: 1)
+            contentView.layer.borderWidth = 2
+            contentView.layer.borderColor = UIColor.black.cgColor
+            contentView.layer.cornerRadius = 8
         }
     }
     
     func setUp() {
         contentView.backgroundColor = #colorLiteral(red: 0.986459434, green: 0.9964066148, blue: 0.9833038449, alpha: 1)
+        backgroundColor = .white
         contentView.layer.borderWidth = 2
         contentView.layer.borderColor = UIColor.black.cgColor
         contentView.layer.cornerRadius = 8
@@ -75,7 +83,7 @@ class DogCell: UICollectionViewCell {
         }
         
         blurImageView.snp.makeConstraints { make in
-            make.left.right.top.bottom.equalToSuperview()
+            make.left.right.top.bottom.equalToSuperview().inset(0.6)
         }
         
         animationView.snp.makeConstraints { make in

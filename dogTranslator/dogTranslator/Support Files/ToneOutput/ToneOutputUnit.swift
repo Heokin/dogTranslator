@@ -11,7 +11,7 @@ import AVFoundation
 
 final class ToneOutputUnit: NSObject {
     
-    var auAudioUnit: AUAudioUnit! = nil     // placeholder for RemoteIO Audio Unit
+    var auAudioUnit: AUAudioUnit! = nil
     
     var avActive     = false             // AVAudioSession active flag
     var audioRunning = false             // RemoteIO Audio Unit running flag

@@ -14,10 +14,11 @@ extension EmotionsController {
     func setUpUI() {
         
         view.backgroundColor = .white
-        roundedSettingView.backgroundColor = UIColor(named: "green")
+        roundedSettingView.backgroundColor = UIColor(named: "green78")
         roundedSubscribeView.backgroundColor = UIColor(named: "grey9f")
 
         view.addSubview(background)
+        view.sendSubviewToBack(background)
         view.addSubview(navigationView)
         view.addSubview(vads)
         
@@ -30,11 +31,12 @@ extension EmotionsController {
         
         NSLayoutConstraint.activate([
             
-            vads.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            vads.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            vads.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            vads.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            vads.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
          
         ])
-        
+
         navigationView.addSubview(navigationHeader)
         navigationView.addSubview(roundedSettingView)
         navigationView.addSubview(roundedSubscribeView)

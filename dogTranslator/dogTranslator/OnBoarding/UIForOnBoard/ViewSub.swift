@@ -70,6 +70,8 @@ class ViewSub: UIView {
             layer.borderWidth = 2.0
             if UIScreen.main.bounds.height > 800 {
                 layer.cornerRadius = 15
+            } else if UIScreen.main.bounds.height < 800 {
+                layer.cornerRadius = 15
             } else {
                 layer.cornerRadius = 32
             }
@@ -85,7 +87,7 @@ class ViewSub: UIView {
             heightAnchor.constraint(equalToConstant: 40).isActive = true
         case .disperse:
             backgroundColor = UIColor(red: 0.855, green: 0.518, blue: 0.2, alpha: 0.15)
-            layer.borderWidth = 0.5
+//            layer.borderWidth = 0.5
             layer.borderColor = UIColor(named: "orange")!.cgColor
         case .settingView:
             backgroundColor = UIColor(named: "orange")

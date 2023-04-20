@@ -1,0 +1,10 @@
+/*
+  InfoPlist.strings
+  dogTranslator
+
+  Created by Stas Dashkevich on 27.12.22.
+  
+*/
+
+NSMicrophoneUsageDescription = "Esta aplicación utiliza el micrófono para grabar tu habla y convertirla en lenguaje animal.";
+CFBundleDisplayName = "Juegos de Perros";

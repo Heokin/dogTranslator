@@ -23,13 +23,13 @@ extension VoiceController: AVAudioRecorderDelegate, RecorderDelegate {
         )
         
         let cancelButton = UIAlertAction(
-            title: NSLocalizedString("cancel", comment: ""),
+            title: NSLocalizedString("alertCancel", comment: ""),
             style: .cancel,
             handler: nil
         )
         
         let settingsAction = UIAlertAction(
-            title: NSLocalizedString("Settings", comment: ""),
+            title: NSLocalizedString("titleSetting", comment: ""),
             style: .default
         ) { _ in
             UIApplication.shared.open(
@@ -46,6 +46,7 @@ extension VoiceController: AVAudioRecorderDelegate, RecorderDelegate {
     
     func recorder(_ recorder: Recorder, didCaptureDecibels decibels: Int) {
         counterTimer = recorder.seconds
+        print(counterTimer)
         if decibels > self.decibels {
             self.decibels = decibels
             print("selfDecibel \(self.decibels) decibel \(decibels)")

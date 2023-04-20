@@ -16,8 +16,8 @@ class SecondOnBoarding: UICollectionViewCell {
     let local = LocalizationVariables()
     
     lazy var background = ImageView(style: .secondSlideBG)
-    lazy var labelFirst = Label(style: .semibold38, "Express Emotions")
-    lazy var labelSecond = Label(style: .semibold38, "with Sounds")
+    lazy var labelFirst = Label(style: .semibold38, NSLocalizedString("secondOnBoardingHeaderUp", comment: ""))
+    lazy var labelSecond = Label(style: .semibold38, NSLocalizedString("secondOnBoardingHeaderDown", comment: ""))
     lazy var reasoneBackground = ImageView(style: .secondSlideImage)
     
     override init(frame: CGRect) {
@@ -55,10 +55,23 @@ extension SecondOnBoarding {
         labelFirst.snp.makeConstraints { make in
             make.top.equalTo(reasoneBackground.snp.bottom).offset(72)
             make.centerX.equalToSuperview()
+            make.left.right.equalToSuperview().inset(10)
         }
         labelSecond.snp.makeConstraints { make in
             make.top.equalTo(labelFirst.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
+            make.left.right.equalToSuperview().inset(10)
+        }
+        
+        if UIScreen.main.bounds.height < 750 {
+            labelFirst.snp.remakeConstraints { make in
+                make.top.equalTo(reasoneBackground.snp.bottom).offset(42)
+                make.left.right.equalToSuperview().inset(10)
+            }
+            labelSecond.snp.remakeConstraints { make in
+                make.top.equalTo(labelFirst.snp.bottom).offset(10)
+                make.left.right.equalToSuperview().inset(10)
+            }
         }
     }
 }

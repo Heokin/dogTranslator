@@ -14,7 +14,7 @@ extension VoiceController {
     
     func setUpUI() {
         view.backgroundColor = .white
-        roundedSettingView.backgroundColor = UIColor(named: "green")
+        roundedSettingView.backgroundColor = UIColor(named: "green78")
         roundedSubscribeView.backgroundColor = UIColor(named: "grey9f")
         view.addSubview(background)
         view.sendSubviewToBack(background)
@@ -34,8 +34,9 @@ extension VoiceController {
         
         NSLayoutConstraint.activate([
             
-            vads.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            vads.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            vads.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            vads.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            vads.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
          
         ])
         
@@ -96,8 +97,8 @@ extension VoiceController {
         
         holdTextLabel.snp.makeConstraints { make in
             make.bottom.equalTo(recordButton.snp.top).offset(-32)
-            make.centerX.equalTo(background)
-            make.height.equalTo(22)
+            make.left.right.equalToSuperview().inset(40)
+//            make.height.equalTo(22)
         }
         
         background.snp.makeConstraints { make in

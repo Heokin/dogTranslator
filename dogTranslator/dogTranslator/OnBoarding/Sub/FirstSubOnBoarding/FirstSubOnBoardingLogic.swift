@@ -16,16 +16,16 @@ extension FirstSubOnBoarding {
         var header: NSAttributedString!
         var wayText: NSAttributedString!
         
-            header = NSAttributedString(
-                string: text + "\n",
-                attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "black3")!,
-                             NSAttributedString.Key.font: UIFont.rounded(ofSize: 13, weight: .medium)]
-            )
-            wayText = NSAttributedString(
-                string: period.uppercased(),
-                attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "black3")!,
-                             NSAttributedString.Key.font: UIFont.rounded(ofSize: 16, weight: .medium)]
-            )
+        header = NSAttributedString(
+            string: text + "\n",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "black3"),
+                         NSAttributedString.Key.font: UIFont.rounded(ofSize: 13, weight: .medium)]
+        )
+        wayText = NSAttributedString(
+            string: period,
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "black3"),
+                         NSAttributedString.Key.font: UIFont.rounded(ofSize: 16, weight: .semibold)]
+        )
         
         attString.append(header)
         attString.append(wayText)
@@ -40,16 +40,16 @@ extension FirstSubOnBoarding {
         var wayText: NSAttributedString!
         
 
-            header = NSAttributedString(
-                string: text + "\n",
-                attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "black3")!,
-                             NSAttributedString.Key.font: UIFont.rounded(ofSize: 12, weight: .medium)]
-            )
-            wayText = NSAttributedString(
-                string: period.uppercased(),
-                attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "black3")!,
-                             NSAttributedString.Key.font: UIFont.rounded(ofSize: 14, weight: .medium)]
-            )
+        header = NSAttributedString(
+            string: text + "\n",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "black3"),
+                         NSAttributedString.Key.font: UIFont.rounded(ofSize: 12, weight: .medium)]
+        )
+        wayText = NSAttributedString(
+            string: period,
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "black3"),
+                         NSAttributedString.Key.font: UIFont.rounded(ofSize: 14, weight: .semibold)]
+        )
         
         
         attString.append(header)
@@ -59,7 +59,7 @@ extension FirstSubOnBoarding {
         
         return attString
     }
-    
+
     func setupLogic() {
         
         dismissView.isHidden = true

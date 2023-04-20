@@ -21,7 +21,7 @@ public class Recorder {
     private var timer: Timer!
     private var decibelsForMath: [Int] = []
     
-    public var seconds: Int = 0
+    public var seconds: Double = 0.0
     
     public var decibels: [Int] = Array(repeating: 0, count: 60)
 
@@ -156,13 +156,12 @@ extension Recorder {
     public func startMonitoring() {
         if recorder != nil {
             isMonitoring = true
-            
             timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
                 if !self.isMonitoring {
                     timer.invalidate()
                 } else {
                     self.delegate?.recorder(self, didCaptureDecibels: Int(self.getDecibels()))
-                    self.seconds = Int(self.recorder.currentTime)
+                    self.seconds = Double(self.recorder.currentTime)
                     if self.decibels.count <= 60 {
                         self.decibels.append(Int(self.getDecibels()))
                     } else {

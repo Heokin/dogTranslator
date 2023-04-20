@@ -24,7 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        
+        window?.overrideUserInterfaceStyle = .light
+        RemoteConfigFetch.shared.fetchValues()
+
         if IsFirstLaunch.shared.isFirstLaunch {
             window?.rootViewController = TabBarController()
         } else {
@@ -38,7 +40,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 UIWindow.appearance().overrideUserInterfaceStyle = .light
         }
         
-        RemoteConfigFetch.shared.fetchValues()
+        var rateAppCounter = 0
+        if UserDefaults.standard.value(forKey: "rateApp") == nil {
+            UserDefaults.standard.set(1, forKey: "rateApp")
+        } else {
+            rateAppCounter = UserDefaults.standard.value(forKey: "rateApp") as! Int
+            rateAppCounter += 1
+            UserDefaults.standard.set(rateAppCounter, forKey: "rateApp")
+        }
+        
         setupDogIcons()
         setupAds()
         udSetup()

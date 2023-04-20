@@ -11,11 +11,12 @@ import SnapKit
 
 class FAQController: UIViewController {
     
+    var l = LocalizationVariables()
     lazy var textView: UITextView = {
         let tf = UITextView()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.backgroundColor = .white
-        tf.text = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. "
+        tf.text = l.settingFaq
         tf.textColor = UIColor(named: "grey9f")
         tf.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         tf.textAlignment = .left
@@ -25,9 +26,9 @@ class FAQController: UIViewController {
     
     lazy var gesture = UITapGestureRecognizer(target: self, action: #selector(dismistoSetting))
     lazy var image = ImageView(style: .faqImage)
-    lazy var header = Label(style: .navigationHeader, "FAQ")
-    lazy var imageHeader = Label(style: .semibold22, "How do I use the whistle?")
-    lazy var settingLabel = Label(style: .regular17, "Settings")
+    lazy var header = Label(style: .navigationHeader, NSLocalizedString("settingFAQ", comment: ""))
+    lazy var imageHeader = Label(style: .semibold22, NSLocalizedString("faq1", comment: ""))
+    lazy var settingLabel = Label(style: .regular17, NSLocalizedString("titleSetting", comment: ""))
     lazy var chevron = ImageView(style: .chev)
     lazy var dismisView = View(style: .clearView)
     
@@ -44,6 +45,18 @@ extension FAQController {
     }
     
     func setupUI() {
+        
+        if Locale.current.languageCode == "ru" {
+            settingLabel.text = "Назад"
+        }
+        if Locale.current.languageCode == "vi" {
+            settingLabel.text = "Hủy"
+        }
+        
+        if Locale.current.languageCode == "es" {
+            settingLabel.text = "Atrás"
+        }
+        
         dismisView.addGestureRecognizer(gesture)
         view.backgroundColor = .white
         view.addSubview(header)
@@ -66,7 +79,7 @@ extension FAQController {
         }
         
         imageHeader.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
+            make.left.right.equalToSuperview().inset(30)
             make.top.equalTo(image.snp.bottom).offset(32)
         }
         
@@ -93,7 +106,7 @@ extension FAQController {
         settingLabel.snp.makeConstraints { make in
             make.left.equalTo(chevron.snp.right)
             make.centerY.equalToSuperview().inset(9)
-            make.right.equalToSuperview().offset(-9)
+            make.width.equalTo(200)
         }
     }
 }

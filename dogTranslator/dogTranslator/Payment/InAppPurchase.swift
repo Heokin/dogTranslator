@@ -21,7 +21,8 @@ case yearTrial = "1yetr"
 }
 
 class NetworkActivityIndicatorManager : NSObject {
-    
+    let local = LocalizationVariables()
+
     private static var loadingCount = 0
     
     class func NetworkOperationStarted() {
@@ -43,7 +44,8 @@ class NetworkActivityIndicatorManager : NSObject {
 }
 
     class IAPManager: UIViewController {
-                
+        let local = LocalizationVariables()
+
         func setupDogIcons() {
             
             if UserDefaults.standard.value(forKey: "Thanks") == nil {
@@ -88,8 +90,8 @@ class NetworkActivityIndicatorManager : NSObject {
             if UserDefaults.standard.value(forKey: "Yummy") == nil {
                 UserDefaults.standard.set("1", forKey: "Yummy")
             }
-            if UserDefaults.standard.value(forKey: "Let’s Play") == nil {
-                UserDefaults.standard.set("1", forKey: "Let’s Play")
+            if UserDefaults.standard.value(forKey: "Let’s play") == nil {
+                UserDefaults.standard.set("1", forKey: "Let’s play")
             }
             if UserDefaults.standard.value(forKey: "Bathe") == nil {
                 UserDefaults.standard.set("1", forKey: "Bathe")
@@ -140,8 +142,8 @@ class NetworkActivityIndicatorManager : NSObject {
             if UserDefaults.standard.value(forKey: "Yummy") == nil {
                 UserDefaults.standard.set("0", forKey: "Yummy")
             }
-            if UserDefaults.standard.value(forKey: "Let’s Play") == nil {
-                UserDefaults.standard.set("0", forKey: "Let’s Play")
+            if UserDefaults.standard.value(forKey: "LetsPlay") == nil {
+                UserDefaults.standard.set("0", forKey: "LetsPlay")
             }
             if UserDefaults.standard.value(forKey: "Bathe") == nil {
                 UserDefaults.standard.set("0", forKey: "Bathe")
@@ -178,11 +180,11 @@ class NetworkActivityIndicatorManager : NSObject {
                 case .success(let purchase):
                     if purchase.needsFinishTransaction {
                         SwiftyStoreKit.finishTransaction(purchase.transaction)
-                        let access = true
+                        let access = 1
                         UserDefaults.standard.set(access, forKey: "FullAccess")
                         self.setupDogIcons()
                     }
-                    let access = true
+                    let access = 1
                     UserDefaults.standard.set(access, forKey: "FullAccess")
                     self.setupDogIcons()
                     
@@ -210,16 +212,29 @@ class NetworkActivityIndicatorManager : NSObject {
             NetworkActivityIndicatorManager.NetworkOperationStarted()
             
             
-            SwiftyStoreKit.restorePurchases(atomically: true, completion: {
-                result in
-                NetworkActivityIndicatorManager.networkOperationFinished()
-                for product in result.restoredPurchases {
-                    if product.needsFinishTransaction {
-                        SwiftyStoreKit.finishTransaction(product.transaction)
-                    }
+            SwiftyStoreKit.restorePurchases(atomically: true) { results in
+                if results.restoreFailedPurchases.count > 0 {
+                    NotificationCenter.default.post(name: Notification.Name("RestoreError"), object: nil)
                 }
-            })
+                else if results.restoredPurchases.count > 0 {
+                    let accesss = true
+                    UserDefaults.standard.set(accesss, forKey: "FullAccess")
+                    NotificationCenter.default.post(name: Notification.Name("SubscribeOk"), object: nil)
+                }
+                else {
+                    NotificationCenter.default.post(name: Notification.Name("RestoreError"), object: nil)
+                }
+            }
             
+        }
+        
+        func restoreTarget() {
+            let alertController = UIAlertController(title: local.alertRestore,
+                                                    message: local.alertRestoreDiscription,
+                                                    preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .destructive))
+            alertController.overrideUserInterfaceStyle = UIUserInterfaceStyle.light
+            self.present(alertController, animated: true)
         }
         
         func fetchUpdatedReciept(){
@@ -243,18 +258,16 @@ class NetworkActivityIndicatorManager : NSObject {
                 NetworkActivityIndicatorManager.networkOperationFinished()
                 switch result {
                 case .success(let receipt):
+                    print("Verify receipt success: \(receipt)")
                     let access = true
+                    //NotificationCenter.default.post(name: Notification.Name("SubscribeOkAuto"), object: nil)
                     UserDefaults.standard.set(access, forKey: "FullAccess")
-                    self.setupDogIcons()
-                    
-                    print("succses verify AAAA ")
                     
                 case .error(let error):
+                    print("Verify receipt failed: \(error)")
                     let accesss = false
                     UserDefaults.standard.set(accesss, forKey: "FullAccess")
-                    self.setupDogIconsFalse()
-                    print(" not succses verify AAAA")
-
+                    
                     self.fetchUpdatedReciept()
                 }
             }
@@ -283,7 +296,7 @@ class NetworkActivityIndicatorManager : NSObject {
                         print("\(productId) ok since \(expiryDate)\n\(items)\n")
 
                     case .expired(let expiryDate, let items):
-                        let access = false
+                        let access = 0
                         UserDefaults.standard.set(access, forKey: "FullAccess")
                         self.setupDogIconsFalse()
                         print("\(productId) is expired since \(expiryDate)\n\(items)\n")

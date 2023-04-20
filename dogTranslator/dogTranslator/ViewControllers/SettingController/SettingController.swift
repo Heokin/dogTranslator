@@ -11,15 +11,15 @@ import SnapKit
 
 class SettingController: UIViewController {
     
-    lazy var header = Label(style: .navigationHeader, "Setting")
-    lazy var doneButton = Button(style: .doneButton, "Done")
+    lazy var header = Label(style: .navigationHeader, NSLocalizedString("titleSetting", comment: ""))
+    lazy var doneButton = Button(style: .doneButton, NSLocalizedString("buttonDone", comment: ""))
     lazy var background = ImageView(style: .mainBackgroundImage)
     lazy var subImage = ImageView(style: .settingSub)
     lazy var subView = View(style: .clearView)
-    lazy var subLabel = Label(style: .semibold22, "Unlock All Features")
+    lazy var subLabel = Label(style: .semibold22, NSLocalizedString("settingUnlock", comment: ""))
     lazy var crownImage = ImageView(style: .settingSub)
     
-    lazy var settingLabel = Label(style: .medium22, "Unlock All Features")
+    lazy var settingLabel = Label(style: .medium22, NSLocalizedString("settingUnlock", comment: ""))
     lazy var settingImage = ImageView(style: .settingCrown)
     
     lazy var openSub = UITapGestureRecognizer(target: self, action: #selector(openSubscription))
@@ -39,8 +39,13 @@ class SettingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadSetting), name: Notification.Name("reloadSetting"), object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setUpUI()
+
     }
 }
 
@@ -52,5 +57,9 @@ extension SettingController: UIViewControllerTransitioningDelegate {
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return DismissTransition()
+    }
+    
+    @objc func reloadSetting() {
+        
     }
 }

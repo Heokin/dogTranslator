@@ -33,36 +33,12 @@ extension SecondSubOnBoarding {
             make.left.right.bottom.top.equalToSuperview()
         }
         
-        imageHeader.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(136)
-            make.centerX.equalToSuperview()
-        }
-        
-        addSubview(unslockAllAccess)
-        addSubview(firstSubLabel)
-        addSubview(secondSubLabel)
-        
-        unslockAllAccess.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(imageHeader.snp.bottom).offset(5)
-        }
-        
-        firstSubLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(unslockAllAccess.snp.bottom).offset(24)
-        }
-        
-        secondSubLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(firstSubLabel.snp.bottom).offset(24)
-        }
-        
+      
         addSubview(firstSubView)
         firstSubView.addSubview(firstSubPlace)
         firstSubView.addSubview(firstTopLabel!)
         firstSubView.addSubview(firstBottomLabel!)
         firstSubView.addSubview(firstImage)
-        
         
         addSubview(secondSubView)
         secondSubView.addSubview(secondSubPlace)
@@ -70,13 +46,11 @@ extension SecondSubOnBoarding {
         secondSubView.addSubview(secondBottomLabel!)
         secondSubView.addSubview(secondImage)
         
-        
         addSubview(thirdSubView)
         thirdSubView.addSubview(thirdSubPlace)
         thirdSubView.addSubview(thirdTopLabel!)
         thirdSubView.addSubview(thirdBottomLabel!)
         thirdSubView.addSubview(thirdImage)
-        
         
         addSubview(firstSelectedSubView)
         firstSelectedSubView.addSubview(firstSelectedSubPlace)
@@ -91,13 +65,11 @@ extension SecondSubOnBoarding {
         secondSelectedSubView.addSubview(secondSelectedBottomLabel!)
         secondSelectedSubView.addSubview(secondImageSub)
         
-        
         addSubview(thirdSelectedSubView)
         thirdSelectedSubView.addSubview(thirdSelectedSubPlace)
         thirdSelectedSubView.addSubview(thirdSelectedTopLabel!)
         thirdSelectedSubView.addSubview(thirdSelectedBottomLabel!)
         thirdSelectedSubView.addSubview(thirdImageSub)
-        
         
         firstSelectedSubView.isHidden = true
         firstSelectedTopLabel!.isHidden = true
@@ -108,9 +80,7 @@ extension SecondSubOnBoarding {
         thirdSelectedSubView.isHidden = true
         thirdSelectedTopLabel!.isHidden = true
         thirdSelectedBottomLabel!.isHidden = true
-        
-        
-        
+    
         //MARK: Add target
         firstSubView.addGestureRecognizer(recognizeFirst)
         secondSubView.addGestureRecognizer(recognizeSecond)
@@ -118,13 +88,9 @@ extension SecondSubOnBoarding {
         dismissView.addGestureRecognizer(dismissTap)
         restoreView.addGestureRecognizer(restoreTap)
         
-
-        
         //MARK: Add constraint
         
         let constraint = [
-            
-          
             
             restoreView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 19),
             restoreView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -141,9 +107,7 @@ extension SecondSubOnBoarding {
         ]
         
         let constraintDefault = [
-            
-
-            
+        
             firstSubView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -UIScreen.main.bounds.height / 4.5363),
             firstSubView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             firstSubView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 6.1984),
@@ -162,7 +126,6 @@ extension SecondSubOnBoarding {
             firstBottomLabel!.heightAnchor.constraint(equalTo: firstSubView.heightAnchor, multiplier: 1.5),
             firstBottomLabel!.centerXAnchor.constraint(equalTo: firstSubView.centerXAnchor),
             firstBottomLabel!.widthAnchor.constraint(equalTo: firstSubView.widthAnchor),
-            
             
             firstSelectedSubView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -UIScreen.main.bounds.height / 4.9512),            firstSelectedSubView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             firstSelectedSubView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 5.075),
@@ -187,7 +150,6 @@ extension SecondSubOnBoarding {
             secondSubView.leadingAnchor.constraint(equalTo: firstSubView.trailingAnchor, constant: 8),
             secondSubView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 6.1984),
             secondSubView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 3.7128),
-            
             
             secondTopLabel!.heightAnchor.constraint(equalTo: secondSubView.heightAnchor, multiplier: 0.5),
             secondTopLabel!.centerXAnchor.constraint(equalTo: secondSubView.centerXAnchor),
@@ -223,7 +185,6 @@ extension SecondSubOnBoarding {
             secondImageSub.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 11.6),
             secondImageSub.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2.9762),
             
-         
             thirdSubView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -UIScreen.main.bounds.height / 4.5363),
             thirdSubView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             thirdSubView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 6.1984),
@@ -267,8 +228,6 @@ extension SecondSubOnBoarding {
         
         let constraintSmall = [
             
-         
-            
             firstSubView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -UIScreen.main.bounds.height / 6.5363),
             firstSubView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             firstSubView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 5.5),
@@ -284,7 +243,6 @@ extension SecondSubOnBoarding {
             firstBottomLabel!.heightAnchor.constraint(equalTo: firstSubView.heightAnchor, multiplier: 1.5),
             firstBottomLabel!.centerXAnchor.constraint(equalTo: firstSubView.centerXAnchor),
             firstBottomLabel!.widthAnchor.constraint(equalTo: firstSubView.widthAnchor),
-            
             
             firstSelectedSubView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -UIScreen.main.bounds.height / 6.9512),            firstSelectedSubView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             firstSelectedSubView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 4.8),
@@ -306,7 +264,6 @@ extension SecondSubOnBoarding {
             secondSubView.leadingAnchor.constraint(equalTo: firstSubView.trailingAnchor, constant: 8),
             secondSubView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 5.5),
             secondSubView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 3.7128),
-            
             
             secondTopLabel!.heightAnchor.constraint(equalTo: secondSubView.heightAnchor, multiplier: 0.5),
             secondTopLabel!.centerXAnchor.constraint(equalTo: secondSubView.centerXAnchor),
@@ -335,7 +292,6 @@ extension SecondSubOnBoarding {
             
             secondSelectedSubPlace.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 11.6),
             secondSelectedSubPlace.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2.9762),
-            
          
             thirdSubView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -UIScreen.main.bounds.height / 6.5363),
             thirdSubView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
@@ -361,7 +317,6 @@ extension SecondSubOnBoarding {
             thirdSelectedSubPlace.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 11.6),
             thirdSelectedSubPlace.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2.9762),
             
-            
             thirdSelectedTopLabel!.heightAnchor.constraint(equalTo: thirdSelectedSubView.heightAnchor, multiplier: 0.5),
             thirdSelectedTopLabel!.centerXAnchor.constraint(equalTo: thirdSelectedSubView.centerXAnchor),
             thirdSelectedTopLabel!.widthAnchor.constraint(equalTo: thirdSelectedSubView.widthAnchor),
@@ -379,6 +334,31 @@ extension SecondSubOnBoarding {
             NSLayoutConstraint.activate(constraintSmall)
         } else {
             NSLayoutConstraint.activate(constraintDefault)
+        }
+        
+        addSubview(unslockAllAccess)
+        addSubview(firstSubLabel)
+        addSubview(secondSubLabel)
+
+        
+        secondSubLabel.snp.makeConstraints { make in
+            make.bottom.equalTo(secondSubView.snp.top).offset(-40)
+            make.centerX.equalToSuperview()
+        }
+        
+        firstSubLabel.snp.makeConstraints { make in
+            make.bottom.equalTo(secondSubLabel.snp.top).offset(-16)
+            make.centerX.equalToSuperview()
+        }
+        
+        unslockAllAccess.snp.makeConstraints { make in
+            make.bottom.equalTo(firstSubLabel.snp.top).offset(-24)
+            make.centerX.equalToSuperview()
+        }
+        
+        imageHeader.snp.makeConstraints { make in
+            make.bottom.equalTo(unslockAllAccess.snp.top)
+            make.centerX.equalToSuperview()
         }
     }
 

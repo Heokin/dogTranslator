@@ -12,13 +12,27 @@ import MessageUI
 
 extension SettingController {
     
-    func shareApplication() {
-            var textToShare = "This app turns any text into sound and helps you consume content for reading with ease: "
-            textToShare += "https://apps.apple.com/app/id6443894291"
+//    func shareApplication() {
+//            var textToShare = NSLocalizedString("sharing", comment: "")
+//            textToShare += "https://apps.apple.com/app/id1660965890"
+//
+//                let activityVC = UIActivityViewController(activityItems: [textToShare], applicationActivities: nil)
+//                self.present(activityVC, animated: true, completion: nil)
+//    }
+    
+     func shareApplication() {
+        var textToShare = NSLocalizedString("sharing", comment: "")
+        textToShare += "https://apps.apple.com/app/id1660965890"
             
                 let activityVC = UIActivityViewController(activityItems: [textToShare], applicationActivities: nil)
+                if let popoverController = activityVC.popoverPresentationController {
+                        popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
+                        popoverController.sourceView = self.view
+                        popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+                    }
+
                 self.present(activityVC, animated: true, completion: nil)
-    }
+        }
     
     func setUpUI() {
         view.addSubview(header)
@@ -26,6 +40,7 @@ extension SettingController {
         view.addSubview(tableView)
         view.addSubview(subView)
         view.addSubview(background)
+        view.sendSubviewToBack(background)
         view.bringSubviewToFront(subView)
         subView.addSubview(subImage)
         subView.addSubview(settingImage)
@@ -38,18 +53,21 @@ extension SettingController {
         view.backgroundColor = .white
         subView.layer.cornerRadius = 16
         subView.backgroundColor = .white.withAlphaComponent(1.0)
-        tableView.backgroundColor = .white
         tableView.isScrollEnabled = false
-        background.frame = UIScreen.main.bounds
+        tableView.backgroundColor = .clear
                 
         header.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(28)
             make.centerX.equalToSuperview()
         }
         
+        background.snp.makeConstraints { make in
+            make.height.width.equalToSuperview()
+        }
+        
         doneButton.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-15)
-            make.top.equalToSuperview().offset(30)
+            make.top.equalToSuperview().offset(26)
         }
         
         subView.snp.makeConstraints { make in
@@ -69,7 +87,7 @@ extension SettingController {
         }
         
         settingImage.snp.makeConstraints { make in
-            make.left.equalTo(subView.snp.left).offset(54)
+            make.left.equalTo(subView.snp.left).offset(32)
             make.centerY.equalToSuperview()
             make.height.equalTo(40)
             make.width.equalTo(51)
@@ -79,6 +97,23 @@ extension SettingController {
             make.left.equalTo(settingImage.snp.right).offset(16)
             make.centerY.equalToSuperview()
         }
+        
+        if Locale.current.languageCode == "ar" {
+            settingImage.snp.remakeConstraints { make in
+                make.right.equalTo(subView.snp.right).offset(-32)
+                make.centerY.equalToSuperview()
+                make.height.equalTo(40)
+                make.width.equalTo(51)
+            }
+            
+            settingLabel.snp.remakeConstraints { make in
+                make.right.equalTo(settingImage.snp.left).offset(-16)
+                make.centerY.equalToSuperview()
+            }
+
+        }
+        
+      
         
         if UserDefaults.standard.value(forKey: "FullAccess") as! Int == 0 {
             subView.isHidden = false
@@ -102,13 +137,13 @@ extension SettingController {
         if Int(rateUs)! == 1 {
             
             let alertController = UIAlertController(
-                title: "Do You Like This App?",
+                title: NSLocalizedString("alertRate", comment: ""),
                 message: nil,
                 preferredStyle: .alert
             )
             
             let cancelButton = UIAlertAction(
-                title: NSLocalizedString("No", comment: ""),
+                title: NSLocalizedString("alertNo", comment: ""),
                 style: .cancel
             ) { _ in
                 if MFMailComposeViewController.canSendMail() {
@@ -119,7 +154,7 @@ extension SettingController {
                     let buildNumber: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
                     let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
                     mail.setToRecipients(["support@mindateq.io"])
-                    mail.setSubject("Text To Speech — User Question ")
+                    mail.setSubject("Dog Whistle — User Question ")
                     mail.setMessageBody("<p>\(systemVersion) \(devicename)<p>build Number -  \(appVersion!) (\(buildNumber))</p> </p>", isHTML: true)
                     
                     self.present(mail, animated: true)
@@ -127,12 +162,12 @@ extension SettingController {
             }
             
             let settingsAction = UIAlertAction(
-                title: NSLocalizedString("Yes", comment: ""),
+                title: NSLocalizedString("alertYes", comment: ""),
                 style: .default
             ) { _ in
                 DispatchQueue.main.async {
                     let productURL = URL(string:
-                                            "https://apps.apple.com/us/app/text-to-speech-reader/id6443894291")
+                                            "https://apps.apple.com/us/app/dog-whistle-dog-translator/id1660965890")
                     var components = URLComponents(url: productURL!, resolvingAgainstBaseURL: false)
                     components?.queryItems = [
                         URLQueryItem(name: "action", value: "write-review")
@@ -153,7 +188,7 @@ extension SettingController {
             
         } else if Int(rateUs)! == 0 {
             DispatchQueue.main.async {
-                let productURL = URL(string:  "https://apps.apple.com/us/app/text-to-speech-reader/id6443894291")
+                let productURL = URL(string:  "https://apps.apple.com/us/app/dog-whistle-dog-translator/id1660965890")
                 var components = URLComponents(url: productURL!, resolvingAgainstBaseURL: false)
                 components?.queryItems = [
                     URLQueryItem(name: "action", value: "write-review")
@@ -170,13 +205,11 @@ extension SettingController {
         print("sub is \(sub)")
         if sub == "2" {
             let vc = SecondSubscribeViewController()
-            vc.modalPresentationStyle = .custom
-            vc.transitioningDelegate = self
+            vc.modalPresentationStyle = .fullScreen
             present(vc, animated: true)
         } else if sub == "1" {
             let vc = FirstSubscribeViewController()
-            vc.modalPresentationStyle = .custom
-            vc.transitioningDelegate = self
+            vc.modalPresentationStyle = .fullScreen
             present(vc, animated: true)
         }
     }

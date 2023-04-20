@@ -65,6 +65,7 @@ class Button: UIButton {
         case .doneButton:
             setTitleColor(UIColor(named: "green78"), for: .normal)
             setTitle(text, for: .normal)
+            titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .medium)
             
         case .closeButton:
             backgroundColor = .clear

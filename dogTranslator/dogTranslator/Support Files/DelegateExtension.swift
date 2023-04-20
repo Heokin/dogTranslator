@@ -14,9 +14,18 @@ extension AppDelegate {
         if UserDefaults.standard.value(forKey: "ads") == nil {
             UserDefaults.standard.set("2", forKey: "ads")
         }
+//        if UserDefaults.standard.value(forKey: "FullAccess") == nil {
+//            UserDefaults.standard.set("0", forKey: "FullAccess")
+//        }
         if UserDefaults.standard.value(forKey: "availableFreeSave") == nil {
             UserDefaults.standard.set("5", forKey: "availableFreeSave")
         }
+        
+        if UserDefaults.standard.value(forKey: "availableFreeSave") == nil {
+            UserDefaults.standard.set("5", forKey: "availableFreeSave")
+        }
+        
+        
     }
     
     func setupDogIcons() {
@@ -63,27 +72,53 @@ extension AppDelegate {
         if UserDefaults.standard.value(forKey: "Yummy") == nil {
             UserDefaults.standard.set("0", forKey: "Yummy")
         }
-        if UserDefaults.standard.value(forKey: "Let’s Play") == nil {
-            UserDefaults.standard.set("0", forKey: "Let’s Play")
+        if UserDefaults.standard.value(forKey: "LetsPlay") == nil {
+            UserDefaults.standard.set("0", forKey: "LetsPlay")
         }
         if UserDefaults.standard.value(forKey: "Bathe") == nil {
             UserDefaults.standard.set("0", forKey: "Bathe")
         }
+        
+        if UserDefaults.standard.value(forKey: "FullAccess") == nil {
+            let setValue = 0
+            UserDefaults.standard.set(setValue, forKey: "FullAccess")
+        }
+
+        
+//        if UserDefaults.standard.value(forKey: "FullAccess") as! Int != 1 {
+//                        IAPManager.shared.verifyPurcahse(product: .yearTrial)
+//                    }
+//        if UserDefaults.standard.value(forKey: "FullAccess") as! Int != 1 {
+//                        IAPManager.shared.verifyPurcahse(product: .weekTrial)
+//                    }
+//        if UserDefaults.standard.value(forKey: "FullAccess") as! Int != 1 {
+//                        IAPManager.shared.verifyPurcahse(product: .mounthTrial)
+//                    }
+//        if UserDefaults.standard.value(forKey: "FullAccess") as! Int != 1 {
+//                        IAPManager.shared.verifyPurcahse(product: .year)
+//                    }
+//        if UserDefaults.standard.value(forKey: "FullAccess") as! Int != 1 {
+//                        IAPManager.shared.verifyPurcahse(product: .mounth)
+//                    }
+//        if UserDefaults.standard.value(forKey: "FullAccess") as! Int != 1 {
+//                        IAPManager.shared.verifyPurcahse(product: .week)
+//                }
     }
     
     func udSetup() {
         
-        var rateAppCounter = 0
-        if UserDefaults.standard.value(forKey: "rateApp") == nil {
-            UserDefaults.standard.set(1, forKey: "rateApp")
-        } else {
-            rateAppCounter = UserDefaults.standard.value(forKey: "rateApp") as! Int
-            rateAppCounter += 1
-            UserDefaults.standard.set(rateAppCounter, forKey: "rateApp")
-        }
+//        var rateAppCounter = 0
+//        if UserDefaults.standard.value(forKey: "rateApp") == nil {
+//            UserDefaults.standard.set(1, forKey: "rateApp")
+//        } else {
+//            rateAppCounter = UserDefaults.standard.value(forKey: "rateApp") as! Int
+//            rateAppCounter += 1
+//            UserDefaults.standard.set(rateAppCounter, forKey: "rateApp")
+//        }
         
         if UserDefaults.standard.value(forKey: "FullAccess") == nil {
-            UserDefaults.standard.set(0, forKey: "FullAccess")
+            let setValue = 0
+            UserDefaults.standard.set(setValue, forKey: "FullAccess")
         }
         
         if UserDefaults.standard.value(forKey: "counterLimit") == nil {

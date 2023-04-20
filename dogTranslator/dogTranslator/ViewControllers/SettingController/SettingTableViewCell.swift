@@ -23,7 +23,7 @@ class TableViewCell: UITableViewCell {
         self.chevron = chevron
         
         image.contentMode = .scaleAspectFit
-        image.layer.opacity = 1.0
+//        image.layer.opacity = 1.0
         backgroundColor = .clear
         label.translatesAutoresizingMaskIntoConstraints = false
         image.translatesAutoresizingMaskIntoConstraints = false

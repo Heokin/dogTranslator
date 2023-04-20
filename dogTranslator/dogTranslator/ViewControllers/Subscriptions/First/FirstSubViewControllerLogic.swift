@@ -18,13 +18,13 @@ extension FirstSubscribeViewController {
         
             header = NSAttributedString(
                 string: text + "\n",
-                attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "Bounty"),
+                attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "black3"),
                              NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .semibold)]
             )
             wayText = NSAttributedString(
                 string: period,
-                attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "Bounty"),
-                             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .light)]
+                attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "black3"),
+                             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .medium)]
             )
         
         attString.append(header)
@@ -42,13 +42,13 @@ extension FirstSubscribeViewController {
 
             header = NSAttributedString(
                 string: text + "\n",
-                attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "s")!,
+                attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "black3")!,
                              NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .semibold)]
             )
             wayText = NSAttributedString(
                 string: period,
-                attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "s")!,
-                             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13, weight: .light)]
+                attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "black3")!,
+                             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13, weight: .medium)]
             )
         
         
@@ -93,13 +93,13 @@ extension FirstSubscribeViewController {
     }
     
     @objc func fingerTapGrad() {
-        continueButton.setTitleColor(.white, for: .normal)
+        continueButton.backgroundColor = UIColor(named: "Bounty")
     }
     
     @objc func defaultButtonGradState() {
-        continueButton.setTitleColor(.black, for: .normal)
+        continueButton.backgroundColor = UIColor(named: "green78")
     }
-    
+
     @objc func firstSub() {
         
         subs = first
@@ -362,7 +362,12 @@ extension FirstSubscribeViewController {
     }
     
     @objc func restoreAlert(notification: Notification) {
-        
+        let alertController = UIAlertController(title: local.alertRestore,
+                                                message: local.alertRestoreDiscription,
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("alertOk", comment: ""), style: .destructive))
+        alertController.overrideUserInterfaceStyle = UIUserInterfaceStyle.light
+        self.present(alertController, animated: true)
     }
     
     func setupLogic() {
@@ -370,7 +375,11 @@ extension FirstSubscribeViewController {
         dismissView.isHidden = true
         xmark.isHidden = true
         
-        let _ = Timer.scheduledTimer(withTimeInterval: TimeInterval(buttonDelay!) ?? 0, repeats: false) { [self] Timer in
+        if buttonDelay == nil {
+            buttonDelay = "0"
+        }
+        
+        let _ = Timer.scheduledTimer(withTimeInterval: TimeInterval(buttonDelay ?? "0") ?? 0, repeats: false) { [self] Timer in
             self.dismissView.isHidden = false
             self.xmark.isHidden = false
         }

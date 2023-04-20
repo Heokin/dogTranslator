@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  dogTranslator
+
+  Created by Stas Dashkevich on 27.12.22.
+  
+*/
+
+NSMicrophoneUsageDescription = "Bu uygulama, konuşmanızı kaydetmek ve hayvan diline dönüştürmek için mikrofonu kullanır.";
+CFBundleDisplayName = "Köpek Oyunları";

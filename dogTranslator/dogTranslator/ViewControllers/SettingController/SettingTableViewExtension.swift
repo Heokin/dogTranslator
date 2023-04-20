@@ -23,23 +23,25 @@ extension SettingController: UITableViewDelegate, UITableViewDataSource {
         
         switch indexPath.row {
         case 0:
-            cell = TableViewCell(id: "cell", image: ImageView(style: .star), label: Label(style: .setting, "Rate US"), chevron: ImageView(style: .chevron))
+            cell = TableViewCell(id: "cell", image: ImageView(style: .star), label: Label(style: .setting, NSLocalizedString("settingRateUs", comment: "")), chevron: ImageView(style: .chevron))
             cell.bgViewImage.backgroundColor = UIColor(named: "green")
         case 1:
-            cell = TableViewCell(id: "cell", image: ImageView(style: .envelope), label: Label(style: .setting, "Support"), chevron: ImageView(style: .chevron))
+            cell = TableViewCell(id: "cell", image: ImageView(style: .envelope), label: Label(style: .setting, NSLocalizedString("settingSupport", comment: "")), chevron: ImageView(style: .chevron))
             cell.bgViewImage.backgroundColor = UIColor(named: "red1")
         case 2:
-            cell = TableViewCell(id: "cell", image: ImageView(style: .lockShield), label: Label(style: .setting, "Privacy Police"), chevron: ImageView(style: .chevron))
+            cell = TableViewCell(id: "cell", image: ImageView(style: .lockShield), label: Label(style: .setting, NSLocalizedString("settingPrivacyPolicy", comment: "")), chevron: ImageView(style: .chevron))
             cell.bgViewImage.backgroundColor = UIColor(named: "purple7f")
         case 3:
-            cell = TableViewCell(id: "cell", image: ImageView(style: .docText), label: Label(style: .setting, "Terms of Use"), chevron: ImageView(style: .chevron))
+            cell = TableViewCell(id: "cell", image: ImageView(style: .docText), label: Label(style: .setting, NSLocalizedString("settingTermsOfUse", comment: "")), chevron: ImageView(style: .chevron))
             cell.bgViewImage.backgroundColor = UIColor(named: "yellowed")
         case 4:
-            cell = TableViewCell(id: "cell", image: ImageView(style: .squary), label: Label(style: .setting, "Share the App"), chevron: ImageView(style: .chevron))
+            cell = TableViewCell(id: "cell", image: ImageView(style: .squary), label: Label(style: .setting, NSLocalizedString("settingShareTheApp", comment: "")), chevron: ImageView(style: .chevron))
             cell.bgViewImage.backgroundColor = UIColor(named: "bluead")
         case 5:
-            cell = TableViewCell(id: "cell", image: ImageView(style: .questions), label: Label(style: .setting, "FAQ"), chevron: ImageView(style: .chevron))
+            cell = TableViewCell(id: "cell", image: ImageView(style: .questions), label: Label(style: .setting, NSLocalizedString("settingFAQ", comment: "")), chevron: ImageView(style: .chevron))
             cell.bgViewImage.backgroundColor = UIColor(named: "browndd")
+            cell.separatorInset = UIEdgeInsets(top: 0, left: tableView.bounds.size.width, bottom: 0, right: 0)
+
         default:
             print("")
         }
@@ -48,7 +50,8 @@ extension SettingController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        tableView.deselectRow(at: indexPath, animated: true)
+
         switch indexPath.row {
         case 0:
             rateApp()
@@ -61,7 +64,7 @@ extension SettingController: UITableViewDelegate, UITableViewDataSource {
                 let buildNumber: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
                 let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
                 mail.setToRecipients(["support@mindateq.io"])
-                mail.setSubject("Dog Translator — User Question ")
+                mail.setSubject("Dog Games — User Question ")
                 mail.setMessageBody("<p>\(systemVersion) \(devicename)<p>build Number -  \(appVersion!) (\(buildNumber))</p> </p>", isHTML: true)
                 
                 present(mail, animated: true)
@@ -78,6 +81,7 @@ extension SettingController: UITableViewDelegate, UITableViewDataSource {
             shareApplication()
         case 5:
             let vc = FAQController()
+            vc.modalPresentationStyle = .pageSheet
             present(vc, animated: true)
         default:
             break

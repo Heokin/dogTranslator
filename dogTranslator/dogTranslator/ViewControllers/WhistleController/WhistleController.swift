@@ -15,9 +15,9 @@ class WhistleController: UIViewController {
     
     //MARK: Create UI
     
-    lazy var background = ImageView(style: .mainBackgroundImage)
+    lazy var background = ImageView(style: .fixBG)
     lazy var navigationView = View(style: .navigationView)
-    lazy var navigationHeader = Label(style: .navigationHeader, "Whistle")
+    lazy var navigationHeader = Label(style: .navigationHeader, NSLocalizedString("whistleButton", comment: ""))
     lazy var navigationSetting = Button(style: .navigationSetting, nil)
     lazy var navigationSubscribe = Button(style: .navigationSubscribe, nil)
     lazy var roundedSettingView = View(style: .roundedView)
@@ -26,6 +26,8 @@ class WhistleController: UIViewController {
     
     lazy var whistleButton = Button(style: .whistleBackground, nil)
     lazy var hzLabel = Label(style: .semibold22, "10 000 Hz")
+    var sub = UserDefaults.standard.value(forKey: "getter2") as? String ?? "1"
+    var rateUs = ""
     
     lazy var slider: UISlider = {
         let slider = UISlider()
@@ -43,6 +45,15 @@ class WhistleController: UIViewController {
         super.viewDidLoad()
     
         setUpUI()
+        IsFirstLaunch.shared.isFirstLaunch = true
+        
+        if UserDefaults.standard.value(forKey: "rateUs") == nil {
+                print("getter not corrected")
+        } else {
+               print("getter corrected")
+            rateUs = UserDefaults.standard.value(forKey: "rateUs") as! String
+        }
+        rateApp()
     }
     
     var baner: GADBannerView?
@@ -50,6 +61,8 @@ class WhistleController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
+        UserDefaults.standard.set(0, forKey: "index")
+
         RemoteConfigFetch.shared.fetchValues()
         
         if UserDefaults.standard.value(forKey: "ads") as? String != nil {
@@ -57,11 +70,14 @@ class WhistleController: UIViewController {
         } else {
             ads = "2"
         }
-        if UserDefaults.standard.value(forKey: "FullAccess") as! Int == 1 {
-            ads = "0"
-            baner = nil
-            vads.isHidden = true
+        if UserDefaults.standard.value(forKey: "FullAccess") != nil {
+            if UserDefaults.standard.value(forKey: "FullAccess") as! Int == 1 {
+                ads = "0"
+                baner = nil
+                vads.isHidden = true
+            }
         }
+      
         if ads as? String == "0" {
             vads.isHidden = true
             setUpUI()
@@ -79,14 +95,14 @@ class WhistleController: UIViewController {
             vads.backgroundColor = UIColor.clear.withAlphaComponent(0)
             baner?.adUnitID = "ca-app-pub-3940256099942544/2934735716"
             if UIScreen.main.bounds.height < 700 {
-                        baner?.frame = CGRect(x: 0, y: view.frame.size.height-100, width: view.frame.size.width, height: 50).integral
+                        baner?.frame = CGRect(x: 0, y: view.frame.size.height-100, width: view.frame.size.width - 70, height: 50).integral
 
                     } else {
-                        baner?.frame = CGRect(x: 0, y: view.frame.size.height-150, width: view.frame.size.width, height: 50).integral
+                        baner?.frame = CGRect(x: 0, y: view.frame.size.height-150, width: view.frame.size.width - 70, height: 50).integral
                     }
                     
                     if UIScreen.main.bounds.height > 950 {
-                        baner?.frame = CGRect(x: 0, y: view.frame.size.height-120, width: view.frame.size.width, height: 50).integral
+                        baner?.frame = CGRect(x: 0, y: view.frame.size.height-120, width: view.frame.size.width - 100, height: 50).integral
                     }
             baner?.rootViewController = self
             baner?.load(GADRequest())
@@ -112,7 +128,7 @@ class WhistleController: UIViewController {
             baner?.load(GADRequest())
         }
         
-        if UserDefaults.standard.value(forKey: "FullAccess") as? Int == 1 {
+        if UserDefaults.standard.value(forKey: "FullAccess") as! Int == 1 {
             roundedSettingView.isHidden = true
         }
     }

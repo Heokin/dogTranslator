@@ -30,6 +30,7 @@ class RemoteConfigFetch {
         "otherSubscription"       : "{\"1\": \"com.dogtranslator.1we\",                                                             \"2\": \"com.dogtranslator.1mo\",                                                             \"3\": \"com.dogtranslator.1ye\" }" as NSObject,
         
         "adsShow": "" as NSObject,
+        "hideScreen": "" as NSObject,
         
     ]
     
@@ -52,6 +53,7 @@ class RemoteConfigFetch {
                     UserDefaults.standard.set(self.remoteConfig["rateUs"].stringValue, forKey: "rateUs")
                     UserDefaults.standard.set(self.remoteConfig["availableFreeHumanTranslator"].stringValue, forKey: "availableFreeSave")
                     UserDefaults.standard.set(self.remoteConfig["adsShow"].stringValue, forKey: "ads")
+                    UserDefaults.standard.set(self.remoteConfig["hideScreen"].stringValue, forKey: "hide")
                 }
                 if status == .error{
                     UserDefaults.standard.set("1", forKey: "getter")
@@ -69,6 +71,8 @@ class RemoteConfigFetch {
                     UserDefaults.standard.set("5", forKey: "availableFreeSave")
                     
                     UserDefaults.standard.set("0", forKey: "ads")
+                    
+                    UserDefaults.standard.set("1", forKey: "hide")
                 }
             }
         }
@@ -94,6 +98,7 @@ class RemoteConfigFetch {
                     UserDefaults.standard.set(self.remoteConfig["rateUs"].stringValue, forKey: "rateUs")
                     UserDefaults.standard.set(self.remoteConfig["availableFreeHumanTranslator"].stringValue, forKey: "availableFreeSave")
                     UserDefaults.standard.set(self.remoteConfig["adsShow"].stringValue, forKey: "ads")
+                    UserDefaults.standard.set(self.remoteConfig["hideScreen"].stringValue, forKey: "hide")
                 }
                 if status == .error{
                     UserDefaults.standard.set("1", forKey: "getter")
@@ -111,6 +116,8 @@ class RemoteConfigFetch {
                     UserDefaults.standard.set("5", forKey: "availableFreeSave")
                     
                     UserDefaults.standard.set("0", forKey: "ads")
+                    
+                    UserDefaults.standard.set("1", forKey: "hide")
                 }
             }
         }

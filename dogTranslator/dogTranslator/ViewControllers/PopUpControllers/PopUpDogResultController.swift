@@ -11,21 +11,16 @@ import SnapKit
 import Lottie
 import AVFAudio
 
-class PopUpDogResultController: UIViewController {
+class PopUpDogResultControllerIndex0: UIViewController {
 
-    lazy var header = Label(style: .semibold30, "I am hungry!")
+    lazy var header = Label(style: .semibold30, "I am hungry")
     lazy var background = ImageView(style: .mainBackgroundImage)
     var counterForLimit = UserDefaults.standard.value(forKey: "counterLimit") as! Int
     var player: AVAudioPlayer?
-    var seconds = 0
-    
-    var voice2Array = ["voice2", "voice2-1"]
-    var voice3Array = ["voice3", "voice3-1"]
-    var voice4Array = ["voice4", "voice4-1"]
-    
-    var header2Array = ["header2", "header2-1"]
-    var header3Array = ["header3", "header3-1"]
-    var header4Array = ["header4", "header4-1"]
+    var seconds: Double = 0.0
+    var selectedIndex: Int?
+
+    var translateArray = [""]
 
     var animationView: LottieAnimationView = {
         var animation = LottieAnimationView()
@@ -38,42 +33,65 @@ class PopUpDogResultController: UIViewController {
         return animation
     }()
     
+    lazy var animView = View(style: .clearView)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for number in 1..<27 {
+            let translate = NSLocalizedString("t"+String(number), comment: "")
+            translateArray.append(translate)
+        }
         
         setUpUI()
         setup()
         animationView.play()
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        Timer.scheduledTimer(withTimeInterval: 4, repeats: false) { Timer in
+        UserDefaults.standard.set(0, forKey: "index")
+
+        Timer.scheduledTimer(withTimeInterval: 5.5, repeats: false) { Timer in
             self.dismiss(animated: false)
         }
                 
         counterForLimit += 1
         UserDefaults.standard.set(counterForLimit, forKey: "counterLimit")
+        
+        for number in 1..<27 {
+            let translate = NSLocalizedString("t"+String(number), comment: "")
+            translateArray.append(translate)
+        }
     }
 }
 
-extension PopUpDogResultController {
+extension PopUpDogResultControllerIndex0 {
     
     func setUpUI() {
         
         view.backgroundColor = .white
         
-        view.addSubview(animationView)
         view.addSubview(background)
+        view.addSubview(animView)
         view.addSubview(header)
+        animView.addSubview(animationView)
+
         
         background.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
         
         animationView.snp.makeConstraints { make in
-            make.centerY.equalToSuperview().offset(100)
+            make.left.right.top.bottom.equalToSuperview()
+        }
+        
+        animView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview().offset(80)
             make.centerX.equalToSuperview()
             make.width.height.equalTo(260)
         }
@@ -81,6 +99,7 @@ extension PopUpDogResultController {
         header.snp.makeConstraints { make in
             make.bottom.equalTo(animationView.snp.top).offset(-32)
             make.centerX.equalToSuperview()
+            make.left.right.equalToSuperview().inset(30)
         }
     }
     
@@ -104,21 +123,28 @@ extension PopUpDogResultController {
         }
                 
         if seconds <= 2 {
-            let random = voice2Array.randomElement()
-            let headerRandom = header2Array.randomElement()
+            let headerRandom = translateArray.randomElement()
             header.text = headerRandom ?? "untitled"
-            playStartSound(random ?? "voice2")
+            if header.text == "" {
+                header.text = NSLocalizedString("t27", comment: "")
+            }
         } else if seconds > 2 && seconds <= 3 {
-            let random = voice3Array.randomElement()
-            playStartSound(random ?? "voice3")
-            let headerRandom = header3Array.randomElement()
+            let headerRandom = translateArray.randomElement()
             header.text = headerRandom ?? "untitled"
+            
+            header.text = headerRandom ?? "untitled"
+            if header.text == "" {
+                header.text = NSLocalizedString("t3", comment: "")
+            }
+            
         } else if seconds > 3 {
-            let random = voice4Array.randomElement()
-            playStartSound(random ?? "voice4")
-            let headerRandom = header4Array.randomElement()
+            let headerRandom = translateArray.randomElement()
             header.text = headerRandom ?? "untitled"
+            
+            header.text = headerRandom ?? "untitled"
+            if header.text == "" {
+                header.text = NSLocalizedString("t3", comment: "")
+            }
         }
     }
 }
-

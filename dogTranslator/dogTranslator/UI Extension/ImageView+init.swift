@@ -11,10 +11,13 @@ import UIKit
 class ImageView: UIImageView {
     
     enum Style {
+        case paw
         case mainBackgroundImage
+        case fixBG
         case changeIcon
         case emptyImage
         case faqImage
+        case chevr
         
         case star
         case envelope
@@ -56,7 +59,7 @@ class ImageView: UIImageView {
             self.image = UIImage(named: "house")
             
         case .mainBackgroundImage:
-            self.image = UIImage(named: "mainBG")
+            self.image = UIImage(named: "newBG")
             
         case .changeIcon:
             self.image = UIImage(named: "changeIcon")?.withRenderingMode(.alwaysOriginal)
@@ -106,6 +109,15 @@ class ImageView: UIImageView {
         case .chev:
             self.image = UIImage(named: "chev")
 
+        case .fixBG:
+            self.image = UIImage(named: "fixBG")
+        case .paw:
+            self.image = UIImage(named: "paw")
+            tintColor = UIColor(named: "cardGreen")
+            widthAnchor.constraint(equalToConstant: 24).isActive = true
+            heightAnchor.constraint(equalToConstant: 24).isActive = true
+        case .chevr:
+            self.image = UIImage(named: "newChev")
         }
     }
     

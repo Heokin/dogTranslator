@@ -1,0 +1,363 @@
+/*
+  Localizable.strings
+  dogTranslator
+
+  Created by Stas Dashkevich on 26.12.22.
+
+*/
+"subscribeSaveButton" = "Continuer";
+
+"firstOnBoardingHeaderUp" = "Simulateur de Chien";
+"firstOnBoardingHeaderDown" = "Parlez et jouez";
+
+"secondOnBoardingHeaderUp" = "Exprimez des émoticônes";
+"secondOnBoardingHeaderDown" = "avec des sons";
+
+"textHelperHuman" = "Tenez pour enregistrer votre voix";
+"textHelperCatSecond" = "Tenez pour enregistrer la voix de votre animal";
+
+"freeButton" = "Obtenez gratuitement";
+"alertRestore" = "No Subscription Found";
+"alertRestoreDiscription" = "You have not previously subscribed to
+\"Dod games\" using this Apple ID.";
+"alertOk" = "OK";
+"subscribeFreeTrial" = "7 jours
+d'essai gratuit";
+
+"subscribeHeader" = "Déverrouiller tous les
+ accès";
+"subscribeTitleLim" = "Pas de limites";
+"subscribeTitleAds" = "Pas de pubs";
+"restoreButton" = "Restaurer";
+
+"subscribeWeekly" = "Hebdomadaire";
+"subscribeYearly" = "Annuel";
+"subscribeMonthly" = "Mensuel";
+
+"titleEmotions" = "Emotions";
+"titleTranslator" = "Simulateur de Chien";
+"titleSetting" = "Paramètres";
+"voiceButton" = "Le Jeu";
+"whistleButton" = "Sifflet";
+
+"settingUnlock" = "Tous les accès";
+"settingRateUs" = "Nous évaluer";
+"settingSupport" = "Assistance";
+"settingPrivacyPolicy" = "Politique de confidentialité";
+"settingTermsOfUse" = "Conditions d'utilisation";
+"settingShareTheApp" = "Partager avec des amis";
+"settingFAQ" = "FAQ";
+"buttonDone" = "Terminé";
+"sharing" = "Cette application amusante vous aidera à communiquer avec votre chien: ";
+
+"alertOk" = "OK";
+"alertYes" = "Oui";
+"alertNo" = "Non";
+"alertCancel" = "Annuler";
+
+"alertRate" = "Aimez-vous cette appli?";
+
+"alertRecognizeHeader" = "Impossible de reconnaître votre discours";
+"alertRecognizeText" = "S'il vous plaît essayez de parler plus fort";
+
+"alertRestore" = "Aucun abonnement trouvé";
+"alertRestoreDiscription" = "Vous n'êtes pas encore abonné à
+\"Traducteur pour Chiens\" à l'aide de cet identifiant Apple.";
+
+"alertPermission" = "Cette application utilise le microphone pour enregistrer votre discours et le convertir en langage animal.";
+
+"alertMicrophonePermission" = "Autorisation de microphone";
+"alertPermissionDenied" = "Cette application utilise le microphone pour enregistrer votre discours et le convertir en langage animal. Veuillez définir l'autorisation d'utiliser le microphone dans paramètres pour le travail.";
+
+
+"emotionsYes" = "Oui!";
+"emotionsHello" = "Bonjour!";
+"emotionsNo" = "Non";
+"emotionsPlayful" = "Espiègle";
+"emotionsHappy" = "Heureux";
+"emotionsMad" = "Fou";
+"emotionsSuprised" = "Surpris";
+"emotionsKiss" = "Baiser aérien";
+"emotionsThanks" = "Merci";
+"emotionsLove" = "Aimer";
+"emotionsAngry" = "En colère";
+"emotionsAmazed" = "Étonné";
+"emotionsCry" = "Pleurer";
+"emotionsLaugh" = "Rire";
+"emotionsAttention" = "Attention";
+"emotionsSleepy" = "Somnolent";
+"emotionsHungry" = "Affamé";
+"emotionsSick" = "Malade";
+"emotionsLonely" = "Solitaire";
+"emotionsSad" = "Triste";
+"emotionsWhat" = "Quoi?";
+"emotionsYummy" = "Délicieux";
+"emotionsBuble" = "Jouons";
+"emotionsBath" = "Baigner";
+
+"t1" = "Nous sommes une grande équipe!";
+"t2" = "Humain, réveille-toi!";
+"t3" = "Ne me laisse pas seul!";
+"t4" = "Mon pote, encore une minute et il y aura une flaque d'eau!";
+"t5" = "Dieu dit de partager avec les autres ... et avec la saucisse aussi!";
+"t6" = "Tu es super!";
+"t7" = "Je veux un os!";
+"t8" = "Je t'aime!";
+"t9" = "Tu me manques toute la journée!";
+"t10" = "Ça te va bien!";
+"t11" = "C'est l'heure des goodies!";
+"t12" = "Tu as eu des chiens avant moi?";
+"t13" = "Allons nous promener!";
+"t14" = "S'il te plaît, caresse-moi!";
+"t15" = "Jouons!";
+"t16" = "Tu es le meilleur!";
+"t17" = "Tu es mon meilleur ami!";
+"t18" = "Offrir une relation libre! Sans laisse!";
+"t19" = "Joue avec moi!";
+"t20" = "Aujourd'hui est le meilleur jour - parce que tu es avec moi!";
+"t21" = "Sautons!";
+"t22" = "Je suis heureux avec vous!";
+"t23" = "Ne t'inquiète pas, mon ami!";
+"t24" = "Amitié pour toujours!";
+"t25" = "Fais-moi un câlin";
+"t26" = "J'ai faim!";
+"t27" = "Aujourd'hui est un bon jour pour une promenade";
+
+"woof" = "Ouaf!";
+
+"woof2" = "Ouaf! Ouaf!";
+
+"woof3" = "Ouaf! Ouaf! Ouaf!";
+
+"woof4" = "Ouaf! Ouaf! Ouaf! Ouaf!";
+
+"faq1" = "Entrainer un chien avec le sifflet";
+
+"faq2" = "1. Utilisez le sifflet s'il a de la difficulté à suivre vos commandes verbales. Ce sifflet a un son particulier que le chien n'entend que pendant son entrainement. Il sera donc plus susceptible d'y répondre qu'à une commande verbale, où le mot-clé peut être utilisé (et donc entendu par le chien) dans les conversations quotidiennes.
+
+Par exemple, si votre chien entend le mot « assis » dans une conversation (avec quelqu'un) où il n'est pas censé exécuter la commande, il finira par trouver qu'il est facultatif d'obéir lorsqu'il va l'entendre.
+
+2. Décidez du signal que vous voulez transmettre. Vous devez émettre un son spécifique et distinct pour indiquer à votre chien la commande à exécuter. Par exemple, si vous voulez lui apprendre la commande assis ou stop, vous pouvez choisir de siffler une seule fois (longuement) et sifflez à trois reprises (brièvement) pour la commande viens.
+
+3. Passez des commandes verbales aux commandes avec le sifflet. Une option est de commencer avec un chien qui connait déjà la commande assis ou stop et qui y répond bien. D'abord, soufflez longuement dans le sifflet pour lui demander de s'assoir et ensuite dites      « assis ». S'il obéit, récompensez-le avec une collation ou des éloges.
+
+Au fur et à mesure que le chien va s'habituer aux ordres donnés avec le sifflet, laissez un temps de plus en plus long entre les commandes faites au sifflet et celles qui sont verbales pour finalement cesser d'utiliser la commande verbale.
+
+Vous pouvez utiliser la même méthode que précédemment si vous voulez l'appeler (c'est-à-dire pour la commande « viens »).";
+"blog1" = "What's the right age
+to start puppy training?";
+"blog2" = "Is it possible to train
+an old dog?";
+"blog3" = "How often should you train your dog";
+"blog4" = "How to prepare a dog
+for training";
+"blog5" = "Best dog treats for training";
+"blog6" = "Where is the best place
+to train a dog?";
+"blog7" = "Basic rules of dog training";
+"blog8" = "Basic dog training commands";
+"blog9" = "Common dog training
+mistakes";
+"blog10" = "Advice on helping fearful dogs";
+
+"blogDis" = "Dog Training Articles";
+"blogAction1" = "Getting a new puppy is an exciting experience for any pet owner. Along with the joy and happiness that a new puppy brings, there are also some responsibilities that come with owning a pet. One of the most important things you can do for your new furry friend is to start their training at the right age. In this article, we'll discuss the best age to start training your puppy.
+
+The ideal age to start training your puppy is between 8-12 weeks. This is the time when puppies are most receptive to learning and can start to understand basic commands such as \"sit,\" \"stay,\" and \"come.\" Puppies at this age are also in the early stages of socialization and are more open to meeting new people and animals, making it a perfect time to introduce them to new environments.
+
+It's important to note that while you can start training your puppy at 8-12 weeks, it's also essential to keep their training sessions short and frequent. Puppies have a shorter attention span than adult dogs and can become easily distracted or bored. Short training sessions of about 5-10 minutes, several times a day, are more effective than long sessions that could lead to frustration or exhaustion.
+
+One of the most crucial aspects of puppy training is potty training. It's important to start this process as soon as possible. Puppies typically need to go potty after eating, drinking, and sleeping. Take your puppy outside every hour or two, and praise them when they go potty outside. If your puppy has an accident inside, don't punish them. Instead, clean it up and take them outside immediately. Punishing your puppy for accidents will only confuse and frighten them, making potty training more challenging.
+
+As your puppy grows older, you can begin to teach them more advanced commands, such as \"heel\" and \"fetch.\" The best way to do this is through positive reinforcement training, which means rewarding your puppy for good behavior. Positive reinforcement training helps build a strong bond between you and your puppy and helps them learn new behaviors more quickly.
+
+Remember that patience and consistency are key to successfully training your puppy, and don't forget to enjoy the journey of watching your furry friend grow and learn.
+";
+
+"blogAction2" = "Yes, it is possible to train an old dog. While it is commonly believed that old dogs can't learn new tricks, this is simply not true. Age is not a limiting factor when it comes to training dogs, and with patience and perseverance, you can teach an old dog new behaviors.
+
+It is important to note, however, that training an older dog may require a different approach than training a younger dog. Older dogs may have physical limitations and may not be as energetic or able to focus for long periods of time. They may also have ingrained behaviors that are more difficult to change.
+
+When training an older dog, it is essential to start with basic commands and work slowly. Consistency is key, and short training sessions with plenty of positive reinforcement can be more effective than longer sessions. Older dogs may take longer to learn new commands, so patience is crucial.
+
+It is also important to take into account any health issues that may be affecting your dog's ability to learn. For example, if your dog has hearing or vision problems, you may need to modify your training techniques accordingly.
+
+In conclusion, it is entirely possible to train an old dog, but it requires patience, consistency, and a willingness to adapt your training methods to suit your dog's needs. With time and effort, you can teach your old dog new tricks and reinforce positive behaviors that will improve their quality of life.
+";
+
+"blogAction3" = "Training your dog is an essential part of responsible pet ownership. It helps establish a bond between you and your furry friend, reinforces good behavior, and can even prevent unwanted behaviors. But how long and often should you train your dog?
+
+The answer depends on various factors, such as the dog's breed, age, and temperament. Generally, training sessions should be short and frequent. Dogs have short attention spans, and training for too long can be counterproductive. It's better to have multiple, shorter sessions throughout the day rather than one long session.
+
+For puppies, their training sessions should be brief and fun, lasting no more than 5-10 minutes at a time, several times a day. As the puppy grows, you can gradually increase the length of the training sessions.
+
+Adult dogs can handle longer training sessions, but it's still important to keep them engaging and not too long. Thirty minutes to an hour per session is reasonable for most dogs, but it's important to listen to your dog's cues and stop if they seem disinterested or tired.
+
+Additionally, it's important to note that training should be consistent and ongoing. It's not a one-time event, and dogs need ongoing reinforcement to maintain their training. Incorporate training into your daily routine and make it a fun and rewarding experience for both you and your dog.
+
+In conclusion, how long and often you train your dog depends on various factors, but generally, short and frequent training sessions are best. Consistency and ongoing reinforcement are essential to maintain your dog's training, and training should be a fun and rewarding experience for both you and your furry friend.
+";
+
+"blogAction4" = "Preparing a dog for training involves several important steps to ensure a successful training session. Here are some tips on how to prepare a dog for training:
+
+1. Establish a routine: Dogs thrive on routine, so establish a consistent daily routine for feeding, exercise, and training.
+
+2. Socialize your dog: Socialization is critical for a well-trained dog. Introduce your dog to different people, dogs, and environments to help them become comfortable and confident in various situations.
+
+3. Choose an appropriate training location: Find a quiet, distraction-free location for training sessions. Make sure the environment is safe and free of hazards.
+
+4. Use positive reinforcement: Positive reinforcement is the most effective training method. Reward your dog with treats, praise, and affection for good behavior.
+
+5. Start with basic commands: Begin with basic commands such as sit, stay, come, and heel. Once your dog has mastered these, you can move on to more advanced training.
+
+6. Keep training sessions short: Dogs have a short attention span, so keep training sessions short and frequent. Aim for 10-15 minutes of training per session, several times a day.
+
+7. Be patient and consistent: Training takes time and patience. Be consistent with your commands and reward system, and don't expect instant results.
+
+By following these steps, you can prepare your dog for successful training sessions and build a strong, positive relationship with your furry friend.";
+
+
+"blogAction5" = "When it comes to training your dog, using treats as a reward can be very effective. However, it's important to choose the right kind of treat to ensure that your dog is motivated and that the treat is healthy for them. Here are some tips on what kind of treats to use when training your dog:
+
+Small, soft treats: Use treats that are small enough for your dog to eat quickly, and that are soft and easy to chew. This will allow you to quickly reward your dog and keep their attention focused on training.
+
+High-value treats: Use treats that your dog finds particularly delicious and rewarding, such as small pieces of cooked chicken, cheese, or freeze-dried liver. These treats can be used for more challenging training exercises or for behaviors that are particularly difficult for your dog to learn.
+
+Healthy treats: Avoid using treats that are high in fat or sugar, as these can be unhealthy for your dog if given in large quantities. Instead, choose treats that are made with natural ingredients and that are low in calories, such as carrot sticks, apple slices, or freeze-dried meat treats.
+
+Variety: Use a variety of different treats to keep your dog interested and motivated. This can also help prevent your dog from becoming bored with the same treat over time.
+
+Remember to always supervise your dog when giving them treats, and to adjust their meal portions accordingly to prevent overfeeding.
+";
+
+"blogAction6" = "The answer to this question depends on several factors, such as the breed of the dog, the type of training required, and your personal preferences. However, some general locations are suitable for training your dog, regardless of the above factors.
+
+The first option is your home. Training your dog at home is an excellent place to start as it allows your dog to feel comfortable and familiar with its surroundings. Additionally, it helps in teaching your dog basic commands, such as sit, stay, come, and heel. Home training can also be convenient as you can train your dog at any time that suits you, and you don't have to worry about transportation.
+
+Another option is a professional dog training center. Professional trainers can help teach your dog advanced commands and socialization skills. Additionally, a professional training center provides a controlled environment that can help your dog focus on learning. Such facilities have a range of equipment, such as agility courses and obstacle courses, that can help your dog become more active and confident.
+
+If you want to train your dog in an outdoor environment, a park or open field can be an excellent choice. Such locations provide ample space for your dog to run and play while teaching them obedience skills. Parks and open fields are also useful for socializing your dog with other dogs and humans.
+
+In general, basic obedience training such as teaching a dog to sit, stay, and come can be done in a quiet, distraction-free area of the home or in a basic obedience class. Socialization and desensitization training may be best done outdoors in areas with controlled exposure to other dogs and people.
+
+In conclusion, where to train your dog ultimately depends on your needs and preferences. However, regardless of the location, training should always be done positively and with patience. With proper training, you can create a strong bond with your dog that will last a lifetime.
+";
+
+"blogAction7" = "Dog training is an essential part of being a responsible dog owner. Properly training your furry friend will not only make them more obedient but also happier and safer. However, dog training can be overwhelming, especially for first-time dog owners. In this article, we will discuss the basic rules of dog training that will help you and your dog have a successful training experience.
+
+1. Designate one person as the primary trainer for the dog, and ensure that all family members follow the same training methods and cues.
+
+2. Choose a time for training when both you and your dog are relaxed and in a positive mood, as this will enhance the quality of the interaction and the success of the training.
+
+3. Take into account your dog's personality and learning style when developing a training plan that focuses on reinforcing good behavior rather than punishing bad behavior.
+
+4. Before beginning a training session, make sure your dog is in good physical condition and free from any health issues that could interfere with their ability to learn or follow commands.
+
+5. Start with the basics: Before moving on to complex tricks, start with basic commands such as \"sit,\" \"stay,\" \"come,\" and \"heel.\" These basic commands will form the foundation of your dog's training.
+
+6. Use positive reinforcement: Dogs respond well to positive reinforcement. Reward your dog with treats, praise, and affection when they follow a command correctly. This will encourage them to repeat the behavior.
+
+7. Consistency is key: Dogs thrive on routine and consistency. Use the same commands and rewards each time you train your dog, and make sure that everyone in your household uses the same commands.
+
+8. Keep training sessions short: Dogs have short attention spans, so keep training sessions brief, usually no more than 10-15 minutes at a time. If you have a puppy, make sure to keep their training sessions even shorter.
+
+9. Patience is essential: Remember that training takes time and patience. Don't get frustrated if your dog doesn't get it right away. Keep practicing, and eventually, they will learn the behavior.
+
+10. Don't punish your dog: Punishing your dog for not following commands can cause fear and anxiety, which can make training even more difficult. Instead, focus on positive reinforcement and redirecting your dog's behavior.
+
+11. Socialize your dog: Socialization is critical to your dog's overall behavior. Introduce your dog to other dogs, people, and different environments to help them become well-rounded and comfortable in various situations.
+
+In conclusion, dog training is an essential part of being a responsible dog owner. Following these basic rules will help you and your dog have a successful training experience. Remember to be patient, consistent, and use positive reinforcement, and soon you'll have a well-trained furry friend
+.";
+
+"blogAction8" = "Some basic dog commands will really help your day-to-day life.
+
+1. Name recognition: Teach your dog to respond to their name by saying their name and rewarding them when they look at you. Start in a quiet room with minimal distractions, say your dog's name and immediately reward them with a treat or praise when they look at you. Repeat this process several times a day until your dog consistently looks at you when you say their name.
+
+2. Sit: The sit command is one of the most important commands you can teach your dog. Begin by holding a treat close to your dog's nose and slowly raise the treat above their head. As your dog follows the treat with their nose, their bottom should lower to the ground. As soon as their bottom touches the ground, say \"sit\" and reward them with the treat.
+
+3. Come: To teach your dog to come when called, start in a quiet room with minimal distractions. Call your dog's name and say \"come\" while patting your leg. When your dog comes to you, reward them with a treat and praise. Gradually increase the distance between you and your dog, and continue to reward them when they come to you.
+
+4. Stay: Start by having your dog sit, then hold your hand out in front of them, say \"stay,\" and take a step back. If your dog stays in place, reward them with a treat and praise. Gradually increase the distance and duration of the stay.
+
+5. Leave it: The leave it command is useful for preventing your dog from picking up or eating something they shouldn't. Begin by placing a treat on the ground and covering it with your hand. When your dog tries to get the treat, say \"leave it\" and wait until they stop trying to get the treat. When they stop trying, reward them with a different treat.
+
+6. Near:
+a. Start with your dog on a leash and hold a treat in your hand.
+b. Say \"Near\" in a clear and firm voice and take a few steps backward, pulling the leash gently.
+c. When your dog moves towards you, reward him with the treat and praise him.
+d. Repeat this process several times until your dog consistently comes to you when you say \"Near\".
+
+7. Paw:
+a. Start with your dog in a sitting position.
+b. Hold a treat in your hand, and say \"Paw\" in a clear and firm voice.
+c. Gently lift one of your dog's paws and touch it to your hand.
+d. Reward your dog with the treat and praise him.
+e. Repeat this process several times until your dog consistently lifts his paw when you say \"Paw\".
+
+8. Place:
+a. Choose a designated spot for your dog, such as a bed or mat.
+b. Lead your dog to the spot and say \"Place\" in a clear and firm voice.
+c. Use a treat or toy to encourage your dog to stay on the spot.
+d. Reward your dog with the treat or toy and praise him.
+e. Repeat this process several times until your dog consistently goes to his place when you say \"Place\".
+
+9. Voice:
+a. Start by saying \"Voice\" in a clear and firm voice.
+b. When your dog barks or makes any vocalization, reward him with a treat and praise him.
+c. Repeat this process several times until your dog associates the command \"Voice\" with making noise.
+
+10. Hush:
+a. Start by saying \"Hush\" in a clear and firm voice.
+b. When your dog stops barking or making noise, reward him with a treat and praise him.
+c. Repeat this process several times until your dog associates the command \"Hush\" with being quiet.
+
+Remember to be patient and consistent when teaching your dog commands. Dogs learn best through positive reinforcement, so reward them with treats and praise when they follow commands correctly. With patience and practice, your dog will learn these basic commands and be a well-trained companion.
+";
+
+"blogAction9" = "Unfortunately, many people make common dog training mistakes that can hinder their progress and even lead to behavioral issues down the line. Here are some of the most common dog training mistakes and how to avoid them:
+
+1. It's important not to \"humanize\" dogs and place unrealistic demands on them. We should recognize a dog's unique capabilities, behavior, and intelligence, and avoid teaching them typical human skills.
+
+2. Personalization is crucial in dog training. Each dog is an individual, so owners should consider their breed, personality, age, and other personal criteria when developing training strategies.
+
+3. Trying to teach too many skills in one session or lacking consistency in practicing techniques can hinder progress. To achieve good results, new skills should be practiced until they become automatic, following a strict sequence from simple to more complex techniques.
+
+4. Over-training a dog with excessively frequent or lengthy sessions can fatigue their nervous system. Owners should control the length and frequency of training, avoiding making the dog repeat the same action more than 2-3 times, and not training them multiple times a day. Adequate rest time should be given to the dog.
+
+5. While treats can be effective rewards, overusing them can lead to satiation and disobedience. Cynologists recommend verbal praise and affection as alternative forms of positive reinforcement for a dog's obedience.
+
+6. Lack of Consistency: One of the biggest mistakes dog owners make is failing to be consistent in their training efforts. Dogs thrive on routine, so it's essential to establish consistent rules and expectations from the start. If you allow your dog to jump up on you one day and scold them for it the next, they will become confused and frustrated.
+
+7. Using Punishment: Punishing your dog for bad behavior is an outdated training technique that can be harmful and counterproductive. Instead of focusing on punishment, try positive reinforcement training, which rewards good behavior with treats, toys, or praise. This method is much more effective in the long run and helps to establish a positive, trusting relationship with your dog.
+
+8. Not Starting Early Enough: Many dog owners make the mistake of waiting too long to start training their puppy. Puppies are like sponges, and they soak up information quickly, so it's essential to start training them as soon as possible. Waiting too long can lead to bad habits and make training more difficult down the line.
+
+9. Inconsistency with Commands: Dogs learn through repetition and consistency, so it's essential to use the same commands every time. If you use different commands for the same behavior, your dog will become confused and may not respond to your commands as well.
+
+10. Lack of Patience: Dog training takes time and patience, and it's essential to understand that your dog may not get everything right the first time. Be patient with your dog and celebrate small victories along the way. Remember, building a strong bond with your dog takes time and effort, but the rewards are worth it in the end.
+
+In conclusion, dog training is an ongoing process that requires patience, consistency, and a positive attitude. By avoiding these common dog training mistakes and focusing on positive reinforcement, you can establish a strong bond with your furry friend and enjoy a lifetime of companionship and joy.
+";
+
+"blogAction10" = "Dogs can sometimes develop fears and anxieties, just like humans. While some dogs may seem to have a naturally nervous disposition, others may develop fears due to negative experiences or lack of proper socialization.
+
+If you have a fearful dog, it can be challenging to watch them struggle and not know how to help. Here are some tips on how to assist your furry friend:
+
+1. Understand your dog's behavior: Before you can help your dog overcome their fears, it's essential to understand what triggers their anxiety. Notice their body language, such as shaking or trembling, and pay attention to their reactions in different situations.
+
+2. Create a safe space: Dogs feel secure when they have a space they can call their own. Consider creating a \"safe space\" for your dog, such as a crate or a bed in a quiet area where they can retreat when they feel anxious.
+
+3. Socialize your dog: Proper socialization is crucial in preventing fears and anxieties in dogs. Expose your dog to different people, environments, and experiences gradually. Introduce new stimuli slowly and positively, making sure your dog feels safe and comfortable.
+
+4. Use positive reinforcement: Reward your dog's calm behavior with treats, praise, and affection. Avoid punishing them for exhibiting anxious behavior as this can reinforce their fears.
+
+5. Seek professional help: If your dog's fear is severe, consider seeking help from a professional dog trainer or a veterinary behaviorist. They can provide a thorough assessment of your dog's behavior and recommend a tailored training plan.
+ Helping a fearful dog can be a challenging and time-consuming process, but it's essential to ensure your furry friend's well-being. With patience, understanding, and positive reinforcement, you can help your dog overcome their fears and enjoy a happy, stress-free life.
+";
+
+"blogIcon" = "Blogue";
+
+"simulatorIcon" = "Simulateur";
+
+"playAgainButton" = "Jouer à nouveau";

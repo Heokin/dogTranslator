@@ -26,13 +26,13 @@ extension EmotionsController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.contentView.backgroundColor = UIColor(named: "cellNormal")
         }
         
-        if UserDefaults.standard.value(forKey: "FullAccess") as? Int == 0 {
+        if UserDefaults.standard.value(forKey: "FullAccess") as! Int == 0 {
             if UserDefaults.standard.value(forKey: dogIconArray[indexPath.row].text) as? String == "0" {
                 approach = false
                 if indexPath.row % 2 == 0 {
                     cell.animationView.play()
                 } else {
-                    
+                    cell.animationView.play()
                 }
             } else {
                 approach = true
@@ -41,8 +41,11 @@ extension EmotionsController: UICollectionViewDelegate, UICollectionViewDataSour
             approach = true
         }
         
-        cell.setup(image: dogIconArray[indexPath.row].image, text: dogIconArray[indexPath.row].text, approach: approach)
+        cell.setup(image: dogIconArray[indexPath.row].image, text: dogIconArrayTranslate[indexPath.row].text, approach: approach)
+        
+        cell.backgroundColor = .white
 
+        
         return cell
     }
     
@@ -51,8 +54,9 @@ extension EmotionsController: UICollectionViewDelegate, UICollectionViewDataSour
         selectedIndex = indexPath
         collectionView.reloadData()
         
-        if UserDefaults.standard.value(forKey: "FullAccess") as? Int == 0 {
+        if UserDefaults.standard.value(forKey: "FullAccess") as! Int == 0 {
             if UserDefaults.standard.value(forKey: dogIconArray[indexPath.row].text) as? String == "0" {
+                openSub()
             } else {
                 DispatchQueue.main.async {
                     do {
@@ -77,7 +81,7 @@ extension EmotionsController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func setUpLogic() {
         let layout = UICollectionViewFlowLayout()
-
+        
         layout.itemSize = CGSize(width: 104, height: 119)
         
         layout.minimumLineSpacing = 16
@@ -107,61 +111,52 @@ extension EmotionsController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     @objc func openSub() {
-        let vc = FirstSubscribeViewController()
-        vc.modalPresentationStyle = .custom
-        vc.transitioningDelegate = self
-        present(vc, animated: true)
+        if sub == "2" {
+            let vc = SecondSubscribeViewController()
+            vc.modalPresentationStyle = .fullScreen
+//            vc.transitioningDelegate = self
+            present(vc, animated: true)
+        } else if sub == "1" {
+            let vc = FirstSubscribeViewController()
+            vc.modalPresentationStyle = .fullScreen
+//            vc.transitioningDelegate = self
+            present(vc, animated: true)
+        }
     }
     
     func playStartSound(_ soundName: String) {
-            guard let path = Bundle.main.path(forResource: soundName, ofType: "mp3") else { return }
-            let url = URL(fileURLWithPath: path)
+        guard let path = Bundle.main.path(forResource: soundName, ofType: "mp3") else { return }
+        let url = URL(fileURLWithPath: path)
         var session: AVAudioSession!
         session = AVAudioSession.sharedInstance()
-
+        
         do {
             try session.setCategory(.ambient, mode: .default)
             try session.setActive(true)
         } catch {
             print(error)
         }
-
-            do {
-                player = try AVAudioPlayer(contentsOf: url)
-                player?.prepareToPlay()
-                player?.play()
-                player?.delegate = self
-                player?.volume = 1.0
-            } catch _ {
-            }
-            do {
-                try AVAudioSession.sharedInstance().setCategory(.playback)
-            } catch(let error) {
-                print(error.localizedDescription)
+        
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.prepareToPlay()
+            player?.play()
+            player?.delegate = self
+            player?.volume = 1.0
+        } catch _ {
+        }
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback)
+        } catch(let error) {
+            print(error.localizedDescription)
         }
     }
 }
-
-extension EmotionsController: UICollectionViewDelegateFlowLayout {
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        if selectedIndex == [0, 20] || selectedIndex == [0, 19] || selectedIndex == [0, 18] || selectedIndex == [0, 21] || selectedIndex == [0, 22] || selectedIndex == [0, 23] {
-            return CGSize(width: 104, height: 119)
-        } else {
-            if selectedIndex == indexPath {
-                return CGSize(width: 106, height: 123)
-            } else {
-                return CGSize(width: 104, height: 119)
-          }
-        }
-      }
-    }
-
-extension EmotionsController: AVAudioPlayerDelegate {
     
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        selectedIndex = nil
-        collection?.reloadData()
+    extension EmotionsController: AVAudioPlayerDelegate {
+        
+        func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+            selectedIndex = nil
+            collection?.reloadData()
+        }
     }
-}

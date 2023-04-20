@@ -7,10 +7,17 @@
 
 import Foundation
 import UIKit
+import AVFAudio
 
 extension WhistleController {
     
     @objc func whistleButtonAction() {
+        do {
+                    try  AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord, options: [.defaultToSpeaker])
+                } catch(let error) {
+                    print(error.localizedDescription)
+                }
+
         whistleButton.imageView?.image = UIImage(named: "whistleRed")
         myUnit.setFrequency(freq: Double(slider.value))
         myUnit.setToneVolume(vol: 1.0)
@@ -38,9 +45,15 @@ extension WhistleController {
     }
     
     @objc func openSub() {
-        let vc = FirstSubscribeViewController()
-        vc.modalPresentationStyle = .custom
-        vc.transitioningDelegate = self
-        present(vc, animated: true)
+        if sub == "2" {
+            let vc = SecondSubscribeViewController()
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
+        } else if sub == "1" {
+            let vc = FirstSubscribeViewController()
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
+        }
     }
-}
+    }
+
